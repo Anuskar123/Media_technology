@@ -1,0 +1,24 @@
+{
+  "name": "Premium Learning Platform",
+  "version": "1.0.0",
+  "description": "A secure PIN-based learning platform with PDF courses and comprehensive exams",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": [
+    "education",
+    "learning",
+    "courses",
+    "exams",
+    "premium",
+    "secure"
+  ],
+  "author": "Learning Platform Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/learning-platform.git"
+  }
+}

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Premium Learning Platform</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">PL</div>
+      <div>
+        <h1>Premium Learning Platform</h1>
+        <p>Secure access • PDF‑based learning • Structured from basic to advanced</p>
+      </div>
+    </div>
+    <div class="user-chip" id="userChip" hidden>
+      <span id="userName"></span>
+      <button id="logoutBtn" class="ghost">Logout</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="loginCard">
+      <div class="auth-header">
+        <div class="auth-badge">Secure Access</div>
+        <h2>Sign in to continue</h2>
+        <p class="muted">Two-layer authentication for premium content</p>
+      </div>
+      
+      <div class="form-row">
+        <label for="pinInput">Access PIN</label>
+        <input id="pinInput" type="password" placeholder="Enter your access PIN" />
+      </div>
+      
+      <div class="form-row">
+        <label for="passwordInput">Master Password</label>
+        <input id="passwordInput" type="password" placeholder="Enter master password" />
+      </div>
+      
+      <button id="loginBtn" class="primary" style="width: 100%;">Continue</button>
+      <p class="error" id="loginError" hidden>Invalid credentials. Please check PIN and password.</p>
+    </section>
+
+    <section class="grid" id="contentArea" hidden>
+      <aside class="sidebar card">
+        <h3>Your Courses</h3>
+        <ul id="courseList" class="course-list"></ul>
+        <div class="divider"></div>
+        <h3>Progress</h3>
+        <div class="progress" id="progressInfo">Select a module to begin.</div>
+      </aside>
+
+      <section class="content">
+        <div id="courseOverview" class="card">
+          <h2 id="courseTitle">Select a course</h2>
+          <p id="courseDescription" class="muted"></p>
+          <div id="courseMeta" class="meta"></div>
+        </div>
+
+        <div id="moduleArea" class="card" hidden>
+          <div class="module-header">
+            <div>
+              <h2 id="moduleTitle"></h2>
+              <p id="moduleLevel" class="tag"></p>
+            </div>
+            <button id="startExamBtn" class="secondary">Take Exam</button>
+          </div>
+
+          <div class="module-grid">
+            <div>
+              <h3>Learning Objectives</h3>
+              <ul id="moduleObjectives"></ul>
+
+              <h3>Key Concepts</h3>
+              <ul id="moduleConcepts"></ul>
+
+              <h3>Real Examples (from PDF)</h3>
+              <ul id="moduleExamples"></ul>
+
+              <h3>Practice Tasks</h3>
+              <ol id="modulePractice"></ol>
+            </div>
+            <div class="pdf-panel">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin: 0;">Study Material (PDF)</h3>
+                <button id="pdfFullscreenBtn" class="secondary" style="padding: 6px 12px; font-size: 0.9rem;">⛶ Fullscreen</button>
+              </div>
+              <embed id="pdfViewer" type="application/pdf" class="pdf-viewer" />
+              <p class="muted">Read the PDF carefully. All explanations and exam answers come from the PDF content.</p>
+            </div>
+          </div>
+
+          <div class="notes">
+            <h3>Deep Notes</h3>
+            <div id="moduleNotes" class="note-box"></div>
+            <p class="muted">Admin can extend these notes using only the provided PDFs in data/course.json.</p>
+          </div>
+        </div>
+
+        <div id="examArea" class="card" hidden>
+          <div class="module-header">
+            <div>
+              <h2 id="examTitle">Exam</h2>
+              <p id="examIntro" class="muted"></p>
+            </div>
+            <button id="closeExamBtn" class="ghost">Close</button>
+          </div>
+          <form id="examForm"></form>
+          <div class="exam-actions">
+            <button id="submitExamBtn" class="primary" type="button">Submit Exam</button>
+            <div id="examResult" class="result" hidden></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>All course content is sourced from the PDFs stored in the platform.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

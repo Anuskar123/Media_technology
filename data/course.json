@@ -1,0 +1,835 @@
+{
+  "courses": [
+    {
+      "id": "python-intro",
+      "title": "Python Programming - Introduction",
+      "description": "Master Python from scratch. Learn syntax, data types, control flow, functions, and OOP concepts with deep explanations and real-world examples.",
+      "pdfFile": "Python Introduction.pdf",
+      "totalModules": 3,
+      "modules": [
+        {
+          "id": "m1",
+          "title": "Getting Started with Python",
+          "level": "Beginner",
+          "objectives": [
+            "Understand what Python is and why it's popular",
+            "Set up Python environment on your computer",
+            "Write and execute your first Python program",
+            "Understand Python syntax and structure"
+          ],
+          "concepts": [
+            "Python interpreter and IDEs",
+            "Variables and data types (int, float, str, bool)",
+            "Print statements for output",
+            "Basic arithmetic operations",
+            "Comments in Python"
+          ],
+          "examples": [
+            "Hello World program - Classic first program in Python",
+            "Storing student grades - Using variables to store and manipulate numbers",
+            "Name and age input - Working with string and integer variables",
+            "Temperature conversion - Real-world application of arithmetic"
+          ],
+          "practice": [
+            "Create a program that prints your full name and age",
+            "Write a program to calculate the area of a rectangle given length and width",
+            "Create a simple calculator that adds two numbers from user input",
+            "Convert hours to minutes and seconds",
+            "Display your favorite book title and author using variables"
+          ],
+          "deepNotes": "Python is an interpreted, high-level programming language known for its simplicity and readability. When you write Python code, the Python interpreter reads it line by line and executes it. Variables are containers for storing data values. In Python, you don't need to declare the type of a variable - Python automatically determines it based on the value you assign. For example, x = 5 makes x an integer, while x = 'hello' makes x a string. The print() function is fundamental - it outputs text to the console. When combining strings and numbers in print(), you can use concatenation (joining strings with +) or formatting methods. Comments start with # and are ignored by Python, helping you document your code for others (and your future self) to understand."
+        },
+        {
+          "id": "m2",
+          "title": "Control Flow and Functions",
+          "level": "Intermediate",
+          "objectives": [
+            "Master if/else conditional statements",
+            "Learn loops (for, while) for repetitive tasks",
+            "Create and call functions with parameters",
+            "Understand return values and variable scope",
+            "Apply logic to solve real problems"
+          ],
+          "concepts": [
+            "If, elif, else statements",
+            "Comparison operators (==, !=, <, >, <=, >=)",
+            "Logical operators (and, or, not)",
+            "For loops and range()",
+            "While loops and break/continue",
+            "Function definition and calling",
+            "Parameters and return values",
+            "Local and global scope"
+          ],
+          "examples": [
+            "Grade calculator - Use if/elif to assign letter grades based on scores",
+            "Student attendance - Use loops to process multiple student records",
+            "Prime number checker - Implement logic using loops and conditionals",
+            "Fibonacci sequence - Generate with loops and functions",
+            "Bank account simulator - Functions for deposits and withdrawals with balance tracking"
+          ],
+          "practice": [
+            "Write a function that checks if a number is even or odd",
+            "Create a program that prints multiplication table up to 10",
+            "Build a simple guessing game using while loop and conditionals",
+            "Write a function to calculate factorial of a number",
+            "Create a program to find the largest number in a list using loops",
+            "Build a simple menu system that keeps running until user chooses to exit"
+          ],
+          "deepNotes": "Conditionals (if/elif/else) allow your program to make decisions based on conditions. A condition evaluates to either True or False. Comparison operators like == (equal), != (not equal), < (less than) are used in conditions. Logical operators (and, or, not) let you combine multiple conditions. For loops iterate over sequences (lists, ranges), executing code multiple times with automatic counters. While loops keep executing as long as a condition is true - be careful of infinite loops! Functions are reusable blocks of code that perform specific tasks. Parameters are inputs to functions, and return statements send results back to the caller. Variable scope determines where a variable can be accessed - local variables exist only within their function, while global variables exist throughout the program. This is crucial for writing maintainable code."
+        },
+        {
+          "id": "m3",
+          "title": "Data Structures and Practical Applications",
+          "level": "Advanced",
+          "objectives": [
+            "Master lists, tuples, dictionaries, and sets",
+            "Understand when to use each data structure",
+            "Work with nested data structures",
+            "Apply data structures to real-world problems",
+            "Write efficient, clean code"
+          ],
+          "concepts": [
+            "Lists - ordered, mutable collections",
+            "Tuples - ordered, immutable collections",
+            "Dictionaries - key-value pairs",
+            "Sets - unique, unordered values",
+            "List methods (append, remove, pop, sort)",
+            "Dictionary methods (keys, values, items)",
+            "Indexing and slicing",
+            "Nested structures",
+            "Iteration over data structures"
+          ],
+          "examples": [
+            "Student database - Store multiple students using dictionaries in a list",
+            "Grade book - Use lists and dictionaries to track student performance",
+            "Inventory system - Use dictionaries to track product quantities",
+            "Contact list - Build a system to add, remove, and search contacts",
+            "Survey analyzer - Collect responses and analyze data using sets and dictionaries"
+          ],
+          "practice": [
+            "Create a list of numbers and find the sum, average, and maximum",
+            "Build a simple to-do list that allows adding and removing tasks",
+            "Create a dictionary of fruits and their prices, calculate total cost of a purchase",
+            "Write a program to count word frequency in a sentence using dictionaries",
+            "Build a simple phonebook that stores name-phone number pairs",
+            "Create a system to manage a class with student names and grades"
+          ],
+          "deepNotes": "Lists are the most commonly used data structure in Python. They're ordered (items have positions), mutable (can be changed), and can contain mixed types. Lists are accessed by index starting from 0. Lists have many useful methods: append() adds items, remove() removes by value, pop() removes by index, sort() arranges items. Dictionaries are incredibly powerful - they store key-value pairs, allowing you to access data by meaningful keys (names) rather than numeric indices. For example, student['John'] can return John's grade. Tuples are like lists but immutable - once created, they can't be changed. This makes them useful for data that shouldn't be modified. Sets contain only unique values and are useful for eliminating duplicates. When choosing data structures, think about: Do I need order? Do I need to modify it? Do I need key-value pairs? Do I need unique values? Understanding these structures is essential for writing efficient Python code."
+        }
+      ],
+      "exam": {
+        "title": "Python Introduction Exam",
+        "passingScore": 70,
+        "totalQuestions": 10,
+        "intro": "This exam tests your understanding of Python basics from beginner to advanced level. Answer all questions based on what you've learned from the modules and PDF.",
+        "questions": [
+          {
+            "id": "q1",
+            "question": "What is the output of: print(2 * 3 + 4)?",
+            "type": "multiple",
+            "options": ["10", "14", "24", "12"],
+            "correct": 0,
+            "explanation": "Following order of operations (PEMDAS): multiplication first (2 * 3 = 6), then addition (6 + 4 = 10)."
+          },
+          {
+            "id": "q2",
+            "question": "Which data type would you use to store a person's age?",
+            "type": "multiple",
+            "options": ["str", "int", "float", "bool"],
+            "correct": 1,
+            "explanation": "Age is a whole number, so int (integer) is the appropriate data type. Strings are for text, floats for decimals, bool for true/false."
+          },
+          {
+            "id": "q3",
+            "question": "What does the range(5) function produce?",
+            "type": "multiple",
+            "options": ["0 to 5", "1 to 5", "0 to 4", "1 to 4"],
+            "correct": 2,
+            "explanation": "range(5) produces numbers from 0 to 4 (five numbers total). Python uses zero-based indexing."
+          },
+          {
+            "id": "q4",
+            "question": "Which operator checks if two values are equal?",
+            "type": "multiple",
+            "options": ["=", "==", "!=", "==="],
+            "correct": 1,
+            "explanation": "The == operator checks equality (returns True if equal). The = operator assigns values. != checks inequality."
+          },
+          {
+            "id": "q5",
+            "question": "What is the purpose of the return statement in a function?",
+            "type": "multiple",
+            "options": ["To exit the program", "To send a value back to the caller", "To print output", "To restart the loop"],
+            "correct": 1,
+            "explanation": "The return statement sends a result back to wherever the function was called. Without it, functions return None."
+          },
+          {
+            "id": "q6",
+            "question": "If you have a list my_list = [1, 2, 3], what is my_list[1]?",
+            "type": "multiple",
+            "options": ["1", "2", "3", "undefined"],
+            "correct": 1,
+            "explanation": "Python uses zero-based indexing. Index 0 is the first element (1), index 1 is the second element (2)."
+          },
+          {
+            "id": "q7",
+            "question": "What will this code print? x = 5; if x > 3: print('yes'); else: print('no')",
+            "type": "multiple",
+            "options": ["yes", "no", "5", "Error"],
+            "correct": 0,
+            "explanation": "Since x (5) is greater than 3, the condition is True, so 'yes' is printed."
+          },
+          {
+            "id": "q8",
+            "question": "Which of these is an immutable data type?",
+            "type": "multiple",
+            "options": ["list", "dictionary", "tuple", "set"],
+            "correct": 2,
+            "explanation": "Tuples are immutable (cannot be changed after creation). Lists, dictionaries, and sets are all mutable."
+          },
+          {
+            "id": "q9",
+            "question": "What is the output of: d = {'name': 'John', 'age': 25}; print(d['name'])?",
+            "type": "multiple",
+            "options": ["John", "name", "25", "KeyError"],
+            "correct": 0,
+            "explanation": "In a dictionary, d['name'] accesses the value associated with the 'name' key, which is 'John'."
+          },
+          {
+            "id": "q10",
+            "question": "Which loop is best for iterating a specific number of times?",
+            "type": "multiple",
+            "options": ["while loop", "for loop", "if loop", "function loop"],
+            "correct": 1,
+            "explanation": "The for loop is ideal for a set number of iterations, especially with range(). While loops are better for undefined iterations."
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-processing",
+      "title": "Digital Image Processing Fundamentals",
+      "description": "Understand images from digital perspective. Learn color theory, image representation, and fundamental concepts that power modern image processing.",
+      "pdfFile": "Concept of images.pdf",
+      "totalModules": 3,
+      "modules": [
+        {
+          "id": "m1",
+          "title": "What are Digital Images?",
+          "level": "Beginner",
+          "objectives": [
+            "Understand what a digital image is",
+            "Learn how images are represented in computers",
+            "Understand pixels and resolution",
+            "Learn about image file formats",
+            "Grasp the relationship between physical and digital images"
+          ],
+          "concepts": [
+            "Raster vs vector images",
+            "Pixels - fundamental units",
+            "Resolution (DPI/PPI)",
+            "Image dimensions (width x height)",
+            "File formats (JPEG, PNG, BMP, GIF)",
+            "Image quality vs file size",
+            "Color depth (bit depth)"
+          ],
+          "examples": [
+            "Smartphone photos - Understanding how your camera captures 12MP or 48MP images",
+            "Social media images - Why Instagram downsamples high-res photos",
+            "Screenshots - How digital display creates pixel-based images",
+            "Weather radar - Satellite imagery showing Earth from space"
+          ],
+          "practice": [
+            "Research and compare resolution of common devices (phone, laptop, monitor)",
+            "Explain why a 4K image has more pixels than Full HD",
+            "Calculate total pixels: A 1920x1080 image has how many pixels?",
+            "Compare file sizes of the same image in different formats",
+            "Explain the trade-off between image quality and file size"
+          ],
+          "deepNotes": "A digital image is a 2D array of pixels. Each pixel is the smallest unit and contains color information. Resolution describes the image dimensions (e.g., 1920x1080 means 1920 pixels wide, 1080 pixels tall). DPI (dots per inch) and PPI (pixels per inch) measure density - higher values mean more detail but larger files. Image formats are stored as files: JPEG uses lossy compression (some data lost but smaller file), PNG uses lossless compression (no data lost but larger file), GIF supports animation. Color depth (measured in bits) determines how many colors can be represented: 8-bit = 256 colors, 24-bit = 16 million colors. Understanding these concepts is foundational to image processing."
+        },
+        {
+          "id": "m2",
+          "title": "Color Theory in Images",
+          "level": "Intermediate",
+          "objectives": [
+            "Master the RGB color model",
+            "Understand alternative color models (HSV, CMYK)",
+            "Learn color representation in digital images",
+            "Understand color spaces and conversions",
+            "Apply color theory to practical problems"
+          ],
+          "concepts": [
+            "RGB color model (Red, Green, Blue)",
+            "Additive color mixing",
+            "HSV color model (Hue, Saturation, Value)",
+            "CMYK color model (Cyan, Magenta, Yellow, Black)",
+            "Color channels",
+            "Grayscale images",
+            "Color quantization",
+            "Subtractive vs additive color"
+          ],
+          "examples": [
+            "LED displays - Use RGB to create all colors by mixing red, green, blue lights",
+            "Printer ink - Use CMYK for subtractive color mixing",
+            "Photography editing - HSV allows intuitive color adjustments (hue, saturation, brightness)",
+            "Grayscale conversion - Converting color images for printing in newspapers"
+          ],
+          "practice": [
+            "Explain why a pixel with RGB(255, 0, 0) appears red",
+            "Calculate what color RGB(128, 128, 128) produces (hint: all equal)",
+            "Convert a color image to grayscale mentally by averaging RGB values",
+            "Understand why changing Saturation in HSV makes colors more or less vivid",
+            "Explain the difference between RGB and CMYK and why each is used"
+          ],
+          "deepNotes": "RGB is the additive color model - it works by combining light (used in screens). R=255, G=255, B=255 creates white (all light), R=0, G=0, B=0 creates black (no light). Each color channel is typically 8 bits (0-255), so there are 256^3 = 16 million possible colors in 24-bit RGB. HSV (Hue-Saturation-Value) is more intuitive for humans: Hue is the actual color (0-360 degrees), Saturation is color intensity (0-100%), Value is brightness. CMYK is subtractive (ink on paper) and is complementary to RGB - it's used for printing. Grayscale represents images in shades of gray (0=black to 255=white), often created by averaging or weighting RGB values. Understanding multiple color models is essential for different applications - RGB for screens, CMYK for printing, HSV for intuitive editing."
+        },
+        {
+          "id": "m3",
+          "title": "Advanced Image Concepts and Processing",
+          "level": "Advanced",
+          "objectives": [
+            "Understand image enhancement techniques",
+            "Learn about filters and their effects",
+            "Understand compression techniques",
+            "Learn basic image processing workflows",
+            "Apply concepts to real-world scenarios"
+          ],
+          "concepts": [
+            "Brightness and contrast adjustment",
+            "Filters (blur, sharpen, edge detection)",
+            "Convolution operations",
+            "Histogram and equalization",
+            "Image compression (lossy vs lossless)",
+            "Noise and noise reduction",
+            "Image segmentation basics",
+            "Feature extraction"
+          ],
+          "examples": [
+            "Instagram filters - Applying brightness, contrast, saturation adjustments to photos",
+            "Facial recognition - Preprocessing images to enhance features for detection",
+            "Medical imaging - Enhancing contrast in X-rays to see details better",
+            "Video compression - Using efficient compression for streaming without quality loss"
+          ],
+          "practice": [
+            "Explain how increasing brightness affects RGB values of every pixel",
+            "Describe how a blur filter works (averaging neighboring pixels)",
+            "Explain why compression is essential for social media and streaming",
+            "Design a basic image enhancement workflow (adjust brightness, then contrast)",
+            "Research and explain how facial recognition finds faces in images"
+          ],
+          "deepNotes": "Image enhancement improves visual quality. Brightness adjustment adds a value to all RGB components. Contrast adjustment multiplies RGB values, making light areas lighter and dark areas darker. Filters like blur work through convolution - a mathematical operation that applies a kernel (small matrix) to each pixel and its neighbors. Blur averages surrounding pixels making images softer. Sharpen emphasizes differences making edges crisp. Edge detection filters highlight boundaries between objects. Histograms show the distribution of pixel values - histogram equalization spreads values across the full range to improve contrast. Compression reduces file size: lossy (like JPEG) removes details humans can't notice easily, lossless (like PNG) preserves all data. Noise appears as random pixels, often from camera sensors; noise reduction (like Gaussian blur) smooths it. Image segmentation divides images into meaningful regions. All these techniques are used in medical imaging, autonomous vehicles, and photo editing software."
+        }
+      ],
+      "exam": {
+        "title": "Image Processing Fundamentals Exam",
+        "passingScore": 70,
+        "totalQuestions": 10,
+        "intro": "Test your understanding of digital image concepts from basic to advanced. All answers come from the course material.",
+        "questions": [
+          {
+            "id": "q1",
+            "question": "What is the smallest unit that makes up a digital image?",
+            "type": "multiple",
+            "options": ["byte", "pixel", "bit", "color"],
+            "correct": 1,
+            "explanation": "A pixel (picture element) is the smallest unit of a digital image. Each pixel contains color information."
+          },
+          {
+            "id": "q2",
+            "question": "A 1920x1080 image has how many pixels?",
+            "type": "multiple",
+            "options": ["1920", "1080", "2,073,600", "3000"],
+            "correct": 2,
+            "explanation": "Total pixels = width × height = 1920 × 1080 = 2,073,600 pixels."
+          },
+          {
+            "id": "q3",
+            "question": "Which color model is used by computer monitors and TVs?",
+            "type": "multiple",
+            "options": ["CMYK", "RGB", "HSV", "LAB"],
+            "correct": 1,
+            "explanation": "RGB (Red, Green, Blue) is additive color used by screens. CMYK is for printing."
+          },
+          {
+            "id": "q4",
+            "question": "What does RGB(255, 0, 0) represent?",
+            "type": "multiple",
+            "options": ["green", "blue", "red", "white"],
+            "correct": 2,
+            "explanation": "Maximum red (255), no green (0), no blue (0) = red color."
+          },
+          {
+            "id": "q5",
+            "question": "Which color model is primarily used in printing?",
+            "type": "multiple",
+            "options": ["RGB", "CMYK", "HSV", "Grayscale"],
+            "correct": 1,
+            "explanation": "CMYK (Cyan, Magenta, Yellow, Black) is used for printing because it's subtractive color."
+          },
+          {
+            "id": "q6",
+            "question": "What does 'bit depth' determine in an image?",
+            "type": "multiple",
+            "options": ["image size", "number of colors possible", "resolution", "file format"],
+            "correct": 1,
+            "explanation": "Bit depth determines how many colors can be represented. 8-bit = 256 colors, 24-bit = 16 million colors."
+          },
+          {
+            "id": "q7",
+            "question": "Which compression type removes some visual data to reduce file size?",
+            "type": "multiple",
+            "options": ["lossless", "lossy", "reversible", "archival"],
+            "correct": 1,
+            "explanation": "Lossy compression removes data but file is smaller (e.g., JPEG). Lossless keeps all data (e.g., PNG)."
+          },
+          {
+            "id": "q8",
+            "question": "What does a blur filter do to neighboring pixels?",
+            "type": "multiple",
+            "options": ["multiplies them", "replaces them", "averages them", "inverts them"],
+            "correct": 2,
+            "explanation": "A blur filter averages neighboring pixels, smoothing the image."
+          },
+          {
+            "id": "q9",
+            "question": "In HSV, what does 'Saturation' represent?",
+            "type": "multiple",
+            "options": ["brightness", "color intensity", "position", "transparency"],
+            "correct": 1,
+            "explanation": "Saturation is color intensity. High saturation = vivid colors, low saturation = grayish colors."
+          },
+          {
+            "id": "q10",
+            "question": "Which image format typically uses lossy compression?",
+            "type": "multiple",
+            "options": ["PNG", "BMP", "JPEG", "GIF"],
+            "correct": 2,
+            "explanation": "JPEG uses lossy compression, making files small at the cost of some quality. PNG uses lossless compression."
+          }
+        ]
+      }
+    },
+    {
+      "id": "color-theory",
+      "title": "Advanced Color Theory and Color Spaces",
+      "description": "Deep dive into color representation, perception, and manipulation. Learn color spaces, color blindness, and professional color management.",
+      "pdfFile": "Colour.pdf",
+      "totalModules": 3,
+      "modules": [
+        {
+          "id": "m1",
+          "title": "Color Perception and Human Vision",
+          "level": "Beginner",
+          "objectives": [
+            "Understand how human eyes perceive color",
+            "Learn about cone cells and color receptors",
+            "Understand color blindness",
+            "Grasp the limits of human color perception",
+            "Learn practical implications for design"
+          ],
+          "concepts": [
+            "Eye anatomy (retina, cone cells)",
+            "Three types of cones (S, M, L wavelengths)",
+            "Color blindness types (red-green, blue-yellow, monochromacy)",
+            "Prevalence of color blindness",
+            "Metamerism (perception of same color from different wavelengths)",
+            "Afterimages and color contrast",
+            "Contrast sensitivity"
+          ],
+          "examples": [
+            "Red-green color blindness - Most common form affecting 8% of males",
+            "Traffic lights design - Uses red, yellow, green positioned specifically for accessibility",
+            "Color palette for presentations - Avoiding red-green combinations for inclusive design",
+            "Medical color blindness test - Ishihara color blindness tests"
+          ],
+          "practice": [
+            "Research color blindness statistics by type and gender",
+            "Analyze a design and suggest improvements for colorblind accessibility",
+            "Explain why afterimages occur (hint: cone cell fatigue)",
+            "Design a traffic system that works for colorblind individuals",
+            "Research which colors are problematic for different types of color blindness"
+          ],
+          "deepNotes": "The human eye contains three types of color-sensitive cone cells: short (S) wavelengths (blue, ~420nm), medium (M) wavelengths (green, ~530nm), and long (L) wavelengths (red, ~560nm). We perceive color through signals from these cones to the brain. Color blindness occurs when one or more cone types don't function properly. Red-green color blindness (most common, 8% of males) means reduced sensitivity to red and green. Complete color blindness (monochromacy) means seeing only in grayscale, extremely rare. When designing, avoid relying solely on color to convey information. Use patterns, shapes, or text labels alongside colors. Metamerism is interesting - two different wavelength combinations can appear identical if they stimulate the same combination of cones. This is how color displays work with just RGB. Afterimages occur because viewing a color fatigues those specific cones; when you look away, the unstimulated cones respond, creating the opposite color."
+        },
+        {
+          "id": "m2",
+          "title": "Color Spaces and Mathematical Representation",
+          "level": "Intermediate",
+          "objectives": [
+            "Master multiple color space models",
+            "Understand color space conversion",
+            "Learn about device-independent color spaces",
+            "Apply color spaces to practical problems",
+            "Understand color gamut and limitations"
+          ],
+          "concepts": [
+            "RGB color space (device-dependent)",
+            "HSL vs HSV color spaces",
+            "LAB color space (device-independent)",
+            "XYZ and CIE standard observer",
+            "Color gamut and color space boundaries",
+            "ICC profiles",
+            "Color space conversion mathematics",
+            "Perceptual uniformity"
+          ],
+          "examples": [
+            "Photo editing software - Switching between RGB, HSV, and LAB for different edits",
+            "Professional printing - Using ICC profiles for consistent color across devices",
+            "Web design - Converting from HSV in design tools to RGB for web browsers",
+            "Scientific color analysis - Using LAB for uniform color difference measurements"
+          ],
+          "practice": [
+            "Convert RGB(255, 0, 128) to HSV manually",
+            "Explain why LAB is device-independent while RGB is device-dependent",
+            "Research why professional photographers use color profiles",
+            "Calculate the impact of color gamut on printing vs screens",
+            "Design a workflow using RGB for screen and converting to CMYK for print"
+          ],
+          "deepNotes": "RGB is device-dependent - the same RGB values look different on different monitors due to hardware differences. This limitation led to device-independent spaces. HSV (Hue-Saturation-Value) and HSL (Hue-Saturation-Lightness) are cylindrical representations of RGB, more intuitive for human color selection but still device-dependent. LAB is truly device-independent - it's based on human color perception. L represents Lightness (0-100), A represents green-red spectrum, B represents blue-yellow spectrum. LAB is useful for color difference calculations because similar distances in LAB space represent similar perceptual differences. XYZ is based on CIE standard observer (average human eye) and is the foundation for many modern color spaces. Color gamut is the range of colors a device can produce - monitors have larger gamuts than printers. ICC profiles bridge this gap by translating colors between spaces, crucial for professional work. Conversion between spaces involves matrix transformations - complex mathematics that software handles for you."
+        },
+        {
+          "id": "m3",
+          "title": "Professional Color Management and Advanced Applications",
+          "level": "Advanced",
+          "objectives": [
+            "Master professional color management workflows",
+            "Understand color in different media",
+            "Learn color psychology applications",
+            "Apply color theory to UI/UX design",
+            "Optimize color for different purposes"
+          ],
+          "concepts": [
+            "Color management workflow",
+            "Soft proofing techniques",
+            "Display calibration",
+            "Color harmony (complementary, analogous, triadic)",
+            "Color psychology and emotional impact",
+            "Accessibility in color design",
+            "Color for data visualization",
+            "Brand color consistency"
+          ],
+          "examples": [
+            "Photography workflow - Capture in sRGB, edit in wider gamut, final export in target space",
+            "UI design color systems - Maintaining consistency across light/dark modes",
+            "Data visualization - Choosing color maps that are colorblind-friendly",
+            "Brand identity - Maintaining exact color specs (Pantone) across all media",
+            "Website design - Using color psychology to influence user behavior"
+          ],
+          "practice": [
+            "Design a color palette for a website considering color psychology",
+            "Create a colorblind-safe palette for data visualization",
+            "Plan a professional photo printing workflow with color management",
+            "Analyze brand colors of major companies and their psychological impact",
+            "Design a UI color system that works in light and dark modes"
+          ],
+          "deepNotes": "Professional color management ensures consistency across the entire workflow. A typical photography workflow: capture in RAW (maximum data), develop in a wide-gamut space, edit using ICC profiles, proof on calibrated monitors, output to specific device profiles. Soft proofing shows on-screen how an image will look when printed - it uses ICC profiles to simulate the printer's color space. Display calibration using tools like colorimeter ensures your monitor accurately displays colors - critical for professional work. Color harmony helps create visually pleasing combinations: complementary colors are opposite on the color wheel (high contrast), analogous colors are adjacent (harmonious), triadic uses three evenly spaced colors. Color psychology: warm colors (red, orange, yellow) evoke energy and excitement; cool colors (blue, green) evoke calm and trust; warm colors advance visually while cool colors recede. For data visualization, using sequential color schemes (light to dark) works for ordered data, diverging schemes for data with meaningful midpoint. Viridis and similar perceptually uniform colormaps are colorblind-friendly alternatives to rainbow colormaps. Brand color consistency requires managing exact specifications (Pantone numbers, RGB values, CMYK values) for all media to maintain brand recognition."
+        }
+      ],
+      "exam": {
+        "title": "Advanced Color Theory Exam",
+        "passingScore": 70,
+        "totalQuestions": 10,
+        "intro": "Test your deep understanding of color theory and color spaces. Questions cover perception, math, and practical applications.",
+        "questions": [
+          {
+            "id": "q1",
+            "question": "Which cone cells in the human eye are most sensitive to red light?",
+            "type": "multiple",
+            "options": ["S cones", "M cones", "L cones", "all equally"],
+            "correct": 2,
+            "explanation": "L (Long wavelength) cones are sensitive to red light around 560nm."
+          },
+          {
+            "id": "q2",
+            "question": "What percentage of males are estimated to have red-green color blindness?",
+            "type": "multiple",
+            "options": ["1-2%", "4-5%", "8%", "15%"],
+            "correct": 2,
+            "explanation": "Approximately 8% of males have red-green color blindness, the most common type."
+          },
+          {
+            "id": "q3",
+            "question": "Which color space is device-independent?",
+            "type": "multiple",
+            "options": ["RGB", "HSV", "LAB", "CMYK"],
+            "correct": 2,
+            "explanation": "LAB is device-independent, designed for consistent color perception across devices."
+          },
+          {
+            "id": "q4",
+            "question": "What does ICC profile do in color management?",
+            "type": "multiple",
+            "options": ["increases file size", "translates colors between spaces", "removes colors", "compresses data"],
+            "correct": 1,
+            "explanation": "ICC profiles translate colors between different device color spaces for consistency."
+          },
+          {
+            "id": "q5",
+            "question": "In HSV, what does 'Value' represent?",
+            "type": "multiple",
+            "options": ["wavelength", "brightness", "saturation level", "hue angle"],
+            "correct": 1,
+            "explanation": "Value (or Brightness) in HSV represents the lightness of the color."
+          },
+          {
+            "id": "q6",
+            "question": "Which color scheme uses three evenly spaced colors on the color wheel?",
+            "type": "multiple",
+            "options": ["complementary", "analogous", "triadic", "monochromatic"],
+            "correct": 2,
+            "explanation": "Triadic schemes use three colors equally spaced 120 degrees apart on the color wheel."
+          },
+          {
+            "id": "q7",
+            "question": "What phenomenon causes the same color appearance from different wavelengths?",
+            "type": "multiple",
+            "options": ["afterimage", "metamerism", "contrast", "gamut"],
+            "correct": 1,
+            "explanation": "Metamerism is when different wavelengths produce the same color perception."
+          },
+          {
+            "id": "q8",
+            "question": "Which color space is typically used in professional photo editing?",
+            "type": "multiple",
+            "options": ["sRGB", "Adobe RGB", "HSV", "CMYK"],
+            "correct": 1,
+            "explanation": "Adobe RGB has a wider gamut than sRGB, preferred by professional photographers."
+          },
+          {
+            "id": "q9",
+            "question": "Warm colors typically evoke which emotional response?",
+            "type": "multiple",
+            "options": ["calm", "trust", "energy and excitement", "sadness"],
+            "correct": 2,
+            "explanation": "Warm colors (red, orange, yellow) psychologically evoke energy, warmth, and excitement."
+          },
+          {
+            "id": "q10",
+            "question": "Why is soft proofing important in professional printing?",
+            "type": "multiple",
+            "options": ["to compress files", "to simulate print output on screen", "to increase colors", "to speed up printing"],
+            "correct": 1,
+            "explanation": "Soft proofing uses ICC profiles to show on-screen how the image will look when printed."
+          }
+        ]
+      }
+    },
+    {
+      "id": "colored-images",
+      "title": "Colored Images - Advanced Processing Techniques",
+      "description": "Master advanced techniques for working with colored images. From manipulation to enhancement, learn professional-grade color image processing.",
+      "pdfFile": "Coloured Images.pdf",
+      "totalModules": 3,
+      "modules": [
+        {
+          "id": "m1",
+          "title": "Color Image Representation and Storage",
+          "level": "Beginner",
+          "objectives": [
+            "Understand how color images are stored",
+            "Learn about color channels and layering",
+            "Understand color depth and quality",
+            "Learn various color image formats",
+            "Optimize storage and transmission"
+          ],
+          "concepts": [
+            "Separate color channels (R, G, B)",
+            "Channel manipulation individually",
+            "Color channel interleaving",
+            "Planar vs interleaved storage",
+            "Bytes per pixel calculations",
+            "Indexed color vs direct color",
+            "Color LUT (Look Up Table)",
+            "Transparency and alpha channel"
+          ],
+          "examples": [
+            "Digital photo storage - How JPEGs with 3 channels store color images",
+            "PNG transparency - How alpha channel enables see-through images",
+            "8-bit indexed color - Old GIFs using color palettes with 256 colors max",
+            "Medical imaging - Separate channels for different wavelengths in multispectral images"
+          ],
+          "practice": [
+            "Calculate bytes for a 1920x1080 image in 24-bit RGB (8 bits per channel)",
+            "Explain the difference between indexed and direct color representation",
+            "Design a color image format that minimizes file size while preserving quality",
+            "Explain how PNG's alpha channel enables transparency",
+            "Compare storage efficiency of BMP vs PNG for colored images"
+          ],
+          "deepNotes": "Color images are typically stored as three separate channels: Red, Green, and Blue. Each channel is an 8-bit grayscale image (0-255 values). A pixel's color is determined by the combination of values in all three channels. For example, a red pixel has R=255, G=0, B=0. Storage can be interleaved (RGBRGBRGB...) or planar (all R values, then all G values, then all B values). Bytes per pixel in RGB is 3 (1 byte per channel); with alpha it's 4. Indexed color uses a color palette - each pixel stores an index (0-255) pointing to a color in the palette. This saves space but limits colors to 256. Direct color stores the actual RGB values. The alpha channel (A) is sometimes added as a fourth channel for transparency (0=fully transparent, 255=fully opaque). Some formats like GIF support transparency, while basic JPEG doesn't. Understanding storage representation is crucial for efficient image processing and compression."
+        },
+        {
+          "id": "m2",
+          "title": "Color Image Manipulation and Enhancement",
+          "level": "Intermediate",
+          "objectives": [
+            "Master color adjustment techniques",
+            "Learn channel operations",
+            "Understand color filtering",
+            "Apply enhancement to images",
+            "Correct color problems"
+          ],
+          "concepts": [
+            "Brightness and contrast per channel",
+            "Color balance adjustment",
+            "White balance and color cast removal",
+            "Hue-saturation-lightness manipulation",
+            "Color channel swap and mix",
+            "Selective color adjustment",
+            "Gamma correction",
+            "Color inversion and negatives"
+          ],
+          "examples": [
+            "Photo editing - Adjusting shadows and highlights in a portrait independently",
+            "White balance correction - Fixing photos taken under warm or cool lighting",
+            "Instagram filters - Color grading (darkening shadows, boosting highlights)",
+            "Night mode photography - Brightening shadow detail while preserving highlights",
+            "Artistic effects - Swapping color channels for surreal effects"
+          ],
+          "practice": [
+            "Describe how adjusting brightness affects each RGB channel",
+            "Explain white balance correction and how it removes color casts",
+            "Design a filter that darkens reds while brightening blues",
+            "Create a sepia tone effect by adjusting channels",
+            "Plan color correction for a photo taken under fluorescent lighting"
+          ],
+          "deepNotes": "Color adjustments operate on individual channels. Brightness adjustment adds a constant to all RGB values uniformly. Contrast stretches the range of values (values < 128 become darker, > 128 become lighter). White balance corrects for different light sources - cool (blue) light requires reducing blue and/or boosting red to look natural. Color cast appears when one color dominates - often fixed by adjusting that channel. Hue rotation shifts all colors around the color wheel equally. Saturation adjustment multiplies the distance of each pixel from the grayscale center - increasing saturation makes colors more vivid. Selective color adjustment isolates specific color ranges (e.g., only reds) and adjusts them independently, powerful for subtle corrections. Channel swaps (swap R with B) create artistic effects. Gamma correction is nonlinear brightness adjustment following human perception (we're more sensitive to shadow details). Color inversion (each channel becomes 255-value) creates negative effects. Understanding these operations is essential for professional image editing and computational color correction."
+        },
+        {
+          "id": "m3",
+          "title": "Advanced Color Image Processing and Applications",
+          "level": "Advanced",
+          "objectives": [
+            "Master color-based filtering and detection",
+            "Learn color in-painting and restoration",
+            "Understand color-space specific processing",
+            "Apply advanced techniques to real problems",
+            "Optimize color processing pipelines"
+          ],
+          "concepts": [
+            "Color-based thresholding and segmentation",
+            "Chroma key (green screen) processing",
+            "Color clustering and quantization",
+            "Color restoration from damaged images",
+            "Demosaicing (Bayer pattern processing)",
+            "Color space optimization for specific tasks",
+            "Color stereo and 3D from color",
+            "Computational color correction"
+          ],
+          "examples": [
+            "Video production - Green screen chroma key to replace backgrounds",
+            "Medical imaging - Color analysis for disease detection in colonoscopy",
+            "Satellite imagery - Using color channels to identify vegetation and water",
+            "Photo restoration - Removing color degradation from old photographs",
+            "Computational photography - Demosaicing RAW sensor data to full color images"
+          ],
+          "practice": [
+            "Design a green screen processing pipeline with edge refinement",
+            "Explain how color clustering can separate objects in an image",
+            "Plan a color restoration workflow for faded old photographs",
+            "Research Bayer pattern and explain demosaicing complexity",
+            "Design color analysis for detecting specific medical conditions"
+          ],
+          "deepNotes": "Color-based segmentation identifies pixels within a specific color range - useful for separating objects by color. Chroma key (green screen) is color-based segmentation where pixels matching the key color (usually green or blue) are replaced with a background. It requires careful edge handling to avoid color fringing. Color clustering groups similar colors together - useful for color quantization (reducing number of colors) and object detection. In-painting restores missing or damaged color information by interpolating from surrounding pixels. Demosaicing is crucial - digital camera sensors have a Bayer pattern (alternating red, green, blue pixels) instead of full color at each pixel. Sophisticated algorithms interpolate missing color channels at each pixel. RAW processing uses demosaicing to create full RGB images. Color-space optimization chooses the best space for specific operations - HSV is better for color-based tasks, LAB for perceptually uniform operations, RGB for most algorithms. Color stereo uses color information for 3D reconstruction in addition to intensity. Computational color correction automatically adjusts colors using machine learning or mathematical models. These advanced techniques power modern computational photography, medical imaging, and video production."
+        }
+      ],
+      "exam": {
+        "title": "Colored Images Processing Exam",
+        "passingScore": 70,
+        "totalQuestions": 10,
+        "intro": "Advanced assessment of colored image processing techniques. Covers storage, manipulation, and sophisticated applications.",
+        "questions": [
+          {
+            "id": "q1",
+            "question": "How many bytes are needed for a 1920x1080 RGB image (24-bit)?",
+            "type": "multiple",
+            "options": ["2,073,600", "6,220,800", "4,147,200", "1,036,800"],
+            "correct": 1,
+            "explanation": "1920 × 1080 × 3 bytes = 6,220,800 bytes (3 bytes for RGB channels)."
+          },
+          {
+            "id": "q2",
+            "question": "What does the alpha channel represent in RGBA images?",
+            "type": "multiple",
+            "options": ["color saturation", "transparency", "brightness", "hue"],
+            "correct": 1,
+            "explanation": "The alpha channel stores transparency values (0=transparent, 255=opaque)."
+          },
+          {
+            "id": "q3",
+            "question": "Which color model is used for indexed color images?",
+            "type": "multiple",
+            "options": ["RGB", "HSV", "Color LUT", "CMYK"],
+            "correct": 2,
+            "explanation": "Indexed color uses a Color Look-Up Table (LUT) with limited palette (typically 256 colors)."
+          },
+          {
+            "id": "q4",
+            "question": "What is the maximum number of colors in an 8-bit indexed image?",
+            "type": "multiple",
+            "options": ["16", "128", "256", "65,536"],
+            "correct": 2,
+            "explanation": "8 bits can represent 2^8 = 256 different values, so maximum 256 colors."
+          },
+          {
+            "id": "q5",
+            "question": "Which technique removes the background in video production using color?",
+            "type": "multiple",
+            "options": ["demosaicing", "inpainting", "chroma key", "quantization"],
+            "correct": 2,
+            "explanation": "Chroma key (green screen) removes pixels matching a specific color for background replacement."
+          },
+          {
+            "id": "q6",
+            "question": "What is the Bayer pattern?",
+            "type": "multiple",
+            "options": ["color quantization algorithm", "sensor pixel arrangement in cameras", "compression format", "color space"],
+            "correct": 1,
+            "explanation": "Bayer pattern is the arrangement of color filters on camera sensors (alternating R, G, B pixels)."
+          },
+          {
+            "id": "q7",
+            "question": "What does demosaicing do?",
+            "type": "multiple",
+            "options": ["compresses the image", "creates full RGB from Bayer pattern", "removes noise", "adjusts white balance"],
+            "correct": 1,
+            "explanation": "Demosaicing interpolates full RGB values from the Bayer pattern sensor data."
+          },
+          {
+            "id": "q8",
+            "question": "Which technique is used to fix color cast from incorrect lighting?",
+            "type": "multiple",
+            "options": ["gamma correction", "white balance", "color inversion", "dithering"],
+            "correct": 1,
+            "explanation": "White balance correction removes color casts by adjusting color channels for lighting conditions."
+          },
+          {
+            "id": "q9",
+            "question": "What happens when you increase saturation in HSV color space?",
+            "type": "multiple",
+            "options": ["colors become darker", "colors become more vivid", "image gets blurred", "colors shift in hue"],
+            "correct": 1,
+            "explanation": "Increasing saturation makes colors more intense and vivid by increasing distance from grayscale."
+          },
+          {
+            "id": "q10",
+            "question": "Which color space is best for perceptually uniform operations?",
+            "type": "multiple",
+            "options": ["RGB", "HSV", "LAB", "CMYK"],
+            "correct": 2,
+            "explanation": "LAB is perceptually uniform - equal distances represent equal perceptual differences."
+          }
+        ]
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "user1",
+      "name": "Premium Student",
+      "pin": "34712",
+      "createdAt": "2025-02-03",
+      "accessibleCourses": ["python-intro", "image-processing", "color-theory", "colored-images"]
+    }
+  ]
+}

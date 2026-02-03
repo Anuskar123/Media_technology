@@ -12,109 +12,246 @@
           "title": "Getting Started with Python",
           "level": "Beginner",
           "objectives": [
-            "Understand what Python is and why it's popular",
-            "Set up Python environment on your computer",
-            "Write and execute your first Python program",
-            "Understand Python syntax and structure"
+            "Define Python and identify real-world use cases",
+            "Install Python and verify setup with the REPL",
+            "Write, save, and execute a .py script",
+            "Use variables and core data types (int, float, str, bool)",
+            "Collect input and display formatted output",
+            "Apply basic operators and comments to document code"
           ],
           "concepts": [
-            "Python interpreter and IDEs",
-            "Variables and data types (int, float, str, bool)",
-            "Print statements for output",
-            "Basic arithmetic operations",
-            "Comments in Python"
+            "Interpreter vs. compiler (how Python runs code)",
+            "REPL vs. script execution",
+            "Program structure and indentation",
+            "Variables and assignment",
+            "Core data types and type conversion",
+            "Input with input() and casting",
+            "Output with print() and f-strings",
+            "Arithmetic and comparison operators",
+            "Comments and code readability"
           ],
           "examples": [
-            "Hello World program - Classic first program in Python",
-            "Storing student grades - Using variables to store and manipulate numbers",
-            "Name and age input - Working with string and integer variables",
-            "Temperature conversion - Real-world application of arithmetic"
+            "Hello World program - classic first script",
+            "Simple receipt total - adding prices and tax",
+            "Name + age input - using input() and int()",
+            "Temperature conversion - Celsius to Fahrenheit",
+            "Seconds to hours/minutes - using division and modulo"
           ],
           "practice": [
-            "Create a program that prints your full name and age",
-            "Write a program to calculate the area of a rectangle given length and width",
-            "Create a simple calculator that adds two numbers from user input",
+            "Print your full name, age, and city in one line",
+            "Build a rectangle area + perimeter calculator",
+            "Create a 2-number calculator for +, -, *, /",
             "Convert hours to minutes and seconds",
-            "Display your favorite book title and author using variables"
+            "Ask for 3 marks and print average (use float)",
+            "Use f-strings to show a formatted message"
           ],
-          "deepNotes": "Python is an interpreted, high-level programming language known for its simplicity and readability. When you write Python code, the Python interpreter reads it line by line and executes it. Variables are containers for storing data values. In Python, you don't need to declare the type of a variable - Python automatically determines it based on the value you assign. For example, x = 5 makes x an integer, while x = 'hello' makes x a string. The print() function is fundamental - it outputs text to the console. When combining strings and numbers in print(), you can use concatenation (joining strings with +) or formatting methods. Comments start with # and are ignored by Python, helping you document your code for others (and your future self) to understand."
+          "scenarioQuestions": [
+            {
+              "question": "A student enters 3 and 4 as input, but the program prints '34' instead of 7. What happened?",
+              "answer": "input() returns strings, so '3' + '4' concatenates to '34'. Convert inputs to int using int(input())."
+            },
+            {
+              "question": "You want to show price = 125 and tax = 7.5 in one line. How do you avoid messy string concatenation?",
+              "answer": "Use f-strings: f\"Price: {price}, Tax: {tax}%\" for clean formatting."
+            },
+            {
+              "question": "Your output shows: Hello{name}. What is missing?",
+              "answer": "You likely used a normal string. Use an f-string: f\"Hello {name}\"."
+            },
+            {
+              "question": "A program crashes when converting input to int. What should you check first?",
+              "answer": "Ensure the input is numeric. If not, handle it or re‑prompt the user."
+            },
+            {
+              "question": "You want a value with 2 decimal places. What formatting should you use?",
+              "answer": "Use f-strings with format specifier: f\"{value:.2f}\"."
+            },
+            {
+              "question": "Why does indentation matter in Python?",
+              "answer": "Indentation defines code blocks. Incorrect indentation causes errors or wrong logic flow."
+            },
+            {
+              "question": "You see NameError: name 'age' is not defined. What does it mean?",
+              "answer": "The variable was never created before use or is out of scope. Define it first."
+            },
+            {
+              "question": "You need to swap two values in Python. What is the simplest way?",
+              "answer": "Use tuple unpacking: a, b = b, a."
+            },
+            {
+              "question": "You wrote x = input('Age: ') and later x + 1 fails. Why?",
+              "answer": "x is a string. Convert to int: x = int(input('Age: '))."
+            },
+            {
+              "question": "Your output includes extra spaces or new lines. How can you control that?",
+              "answer": "Use print() with sep= and end= parameters to control separators and line endings."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Python is a high-level, interpreted language designed for readability. The interpreter executes code line-by-line, which makes it ideal for learning and rapid development.<br><br><strong>Environment:</strong> Use the REPL for quick experiments and .py scripts for complete programs. Always verify installation with <em>python --version</em> and run a simple file to confirm the PATH is correct.<br><br><strong>Core Skills:</strong> Variables store values, and Python infers the type from assignment. Use input() to collect data (as text) and cast to int or float when you need numeric operations. Output cleanly with f-strings (e.g., f\"Name: {name}\").<br><br><strong>Operators:</strong> Arithmetic (+, -, *, /, //, %, **) and comparison (==, !=, <, >, <=, >=) are the foundation for later control flow. Use parentheses to control precedence.<br><br><strong>Readability:</strong> Indentation is mandatory for code blocks. Comments should explain purpose or logic, not restate the obvious. Consistent formatting makes code easier to maintain and debug."
         },
         {
           "id": "m2",
           "title": "Control Flow and Functions",
           "level": "Intermediate",
           "objectives": [
-            "Master if/else conditional statements",
-            "Learn loops (for, while) for repetitive tasks",
-            "Create and call functions with parameters",
-            "Understand return values and variable scope",
-            "Apply logic to solve real problems"
+            "Build decision logic with if/elif/else",
+            "Use comparison and logical operators correctly",
+            "Create loops for fixed and open-ended repetition",
+            "Design functions with parameters and return values",
+            "Understand scope and avoid common logic errors",
+            "Combine conditions and loops to solve real problems"
           ],
           "concepts": [
-            "If, elif, else statements",
+            "Conditional branching with if/elif/else",
             "Comparison operators (==, !=, <, >, <=, >=)",
             "Logical operators (and, or, not)",
-            "For loops and range()",
-            "While loops and break/continue",
-            "Function definition and calling",
-            "Parameters and return values",
-            "Local and global scope"
+            "For loops with range()",
+            "While loops, break, and continue",
+            "Function definition, parameters, and return",
+            "Variable scope: local vs global",
+            "Input validation with loops",
+            "Common logic mistakes (off‑by‑one, infinite loops)"
           ],
           "examples": [
-            "Grade calculator - Use if/elif to assign letter grades based on scores",
-            "Student attendance - Use loops to process multiple student records",
-            "Prime number checker - Implement logic using loops and conditionals",
-            "Fibonacci sequence - Generate with loops and functions",
-            "Bank account simulator - Functions for deposits and withdrawals with balance tracking"
+            "Grade calculator - assign letter grades by score",
+            "Attendance tracker - count present/absent in a list",
+            "Prime number checker - loop and condition checks",
+            "Fibonacci generator - loop-based sequence",
+            "Bank account simulator - functions for deposit/withdraw"
           ],
           "practice": [
-            "Write a function that checks if a number is even or odd",
-            "Create a program that prints multiplication table up to 10",
-            "Build a simple guessing game using while loop and conditionals",
-            "Write a function to calculate factorial of a number",
-            "Create a program to find the largest number in a list using loops",
-            "Build a simple menu system that keeps running until user chooses to exit"
+            "Write a function to check even/odd",
+            "Print a multiplication table up to 10",
+            "Build a number guessing game with a while loop",
+            "Write a factorial function",
+            "Find the largest number in a list",
+            "Create a menu system that loops until exit"
           ],
-          "deepNotes": "Conditionals (if/elif/else) allow your program to make decisions based on conditions. A condition evaluates to either True or False. Comparison operators like == (equal), != (not equal), < (less than) are used in conditions. Logical operators (and, or, not) let you combine multiple conditions. For loops iterate over sequences (lists, ranges), executing code multiple times with automatic counters. While loops keep executing as long as a condition is true - be careful of infinite loops! Functions are reusable blocks of code that perform specific tasks. Parameters are inputs to functions, and return statements send results back to the caller. Variable scope determines where a variable can be accessed - local variables exist only within their function, while global variables exist throughout the program. This is crucial for writing maintainable code."
+          "scenarioQuestions": [
+            {
+              "question": "Your loop prints numbers 1 to 9 but should print 1 to 10. What is the most likely bug?",
+              "answer": "You likely used range(1, 10). The stop value is exclusive. Use range(1, 11)."
+            },
+            {
+              "question": "A function updates a total but the value is lost after the function ends. Why?",
+              "answer": "The variable is local to the function. Return the value and assign it outside, or use a global (not recommended)."
+            },
+            {
+              "question": "Your while loop never ends. What is the common cause?",
+              "answer": "The loop condition never becomes false because the variable isn't updated inside the loop."
+            },
+            {
+              "question": "You used if x > 0 and x < 10. What shorter form is valid in Python?",
+              "answer": "Use chained comparisons: 0 < x < 10."
+            },
+            {
+              "question": "A function returns None unexpectedly. What is the likely reason?",
+              "answer": "You forgot a return statement or returned nothing in some branch."
+            },
+            {
+              "question": "You want to stop a loop when input is 'q'. What structure fits best?",
+              "answer": "Use a while loop that breaks when the user enters 'q'."
+            },
+            {
+              "question": "A menu program repeats without showing the menu again. What’s missing?",
+              "answer": "The menu print statement is outside the loop. Move it inside the loop."
+            },
+            {
+              "question": "You need to skip negative numbers while summing positives. What do you use?",
+              "answer": "Use continue to skip the rest of the loop body for negatives."
+            },
+            {
+              "question": "Why is a for loop ideal when iterating a list?",
+              "answer": "It avoids manual indexing and reduces off‑by‑one errors."
+            },
+            {
+              "question": "A variable inside a function hides a global variable. What is this called?",
+              "answer": "Variable shadowing; the local variable overrides the global name within the function."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Control flow allows decisions and repetition—the core of problem solving in Python.<br><br><strong>Decisions:</strong> if/elif/else execute blocks based on conditions. Combine conditions with logical operators and use parentheses for clarity.<br><br><strong>Loops:</strong> for loops iterate over sequences or ranges; while loops repeat until a condition changes. Always update loop variables to avoid infinite loops. Use break to stop early and continue to skip an iteration.<br><br><strong>Functions:</strong> Functions encapsulate logic. Use parameters for inputs and return for outputs. Keep functions short and focused for readability and testing.<br><br><strong>Scope:</strong> Variables defined inside a function are local. Prefer returning values rather than modifying globals to keep code predictable."
         },
         {
           "id": "m3",
           "title": "Data Structures and Practical Applications",
           "level": "Advanced",
           "objectives": [
-            "Master lists, tuples, dictionaries, and sets",
-            "Understand when to use each data structure",
-            "Work with nested data structures",
-            "Apply data structures to real-world problems",
-            "Write efficient, clean code"
+            "Use lists, tuples, dictionaries, and sets confidently",
+            "Choose the right structure for a given problem",
+            "Navigate indexing, slicing, and iteration",
+            "Build nested structures for real data",
+            "Apply common methods for adding, updating, and removing",
+            "Write clean, efficient data‑driven code"
           ],
           "concepts": [
-            "Lists - ordered, mutable collections",
-            "Tuples - ordered, immutable collections",
-            "Dictionaries - key-value pairs",
-            "Sets - unique, unordered values",
-            "List methods (append, remove, pop, sort)",
-            "Dictionary methods (keys, values, items)",
-            "Indexing and slicing",
-            "Nested structures",
-            "Iteration over data structures"
+            "Lists (ordered, mutable)",
+            "Tuples (ordered, immutable)",
+            "Dictionaries (key‑value pairs)",
+            "Sets (unique, unordered)",
+            "Indexing, slicing, and membership",
+            "List methods: append, remove, pop, sort",
+            "Dictionary methods: keys, values, items, get",
+            "Nested structures and iteration",
+            "Choosing structures by access pattern"
           ],
           "examples": [
-            "Student database - Store multiple students using dictionaries in a list",
-            "Grade book - Use lists and dictionaries to track student performance",
-            "Inventory system - Use dictionaries to track product quantities",
-            "Contact list - Build a system to add, remove, and search contacts",
-            "Survey analyzer - Collect responses and analyze data using sets and dictionaries"
+            "Student database - list of dictionaries",
+            "Grade book - nested dict by subject",
+            "Inventory tracker - product:quantity",
+            "Contact list - search by name",
+            "Survey analyzer - set for unique responses"
           ],
           "practice": [
-            "Create a list of numbers and find the sum, average, and maximum",
-            "Build a simple to-do list that allows adding and removing tasks",
-            "Create a dictionary of fruits and their prices, calculate total cost of a purchase",
-            "Write a program to count word frequency in a sentence using dictionaries",
-            "Build a simple phonebook that stores name-phone number pairs",
-            "Create a system to manage a class with student names and grades"
+            "Compute sum, average, max from a list",
+            "Build a to‑do list (add/remove)",
+            "Calculate total purchase from a price dictionary",
+            "Count word frequency in a sentence",
+            "Create a phonebook with lookup by name",
+            "Manage class grades with nested dictionaries"
           ],
-          "deepNotes": "Lists are the most commonly used data structure in Python. They're ordered (items have positions), mutable (can be changed), and can contain mixed types. Lists are accessed by index starting from 0. Lists have many useful methods: append() adds items, remove() removes by value, pop() removes by index, sort() arranges items. Dictionaries are incredibly powerful - they store key-value pairs, allowing you to access data by meaningful keys (names) rather than numeric indices. For example, student['John'] can return John's grade. Tuples are like lists but immutable - once created, they can't be changed. This makes them useful for data that shouldn't be modified. Sets contain only unique values and are useful for eliminating duplicates. When choosing data structures, think about: Do I need order? Do I need to modify it? Do I need key-value pairs? Do I need unique values? Understanding these structures is essential for writing efficient Python code."
+          "scenarioQuestions": [
+            {
+              "question": "You need to store student IDs and their grades for fast lookup. Which structure fits best?",
+              "answer": "A dictionary, because it maps unique keys (IDs) to values (grades) with fast access."
+            },
+            {
+              "question": "You must keep a list of unique course codes with no duplicates. What should you use?",
+              "answer": "A set, because it automatically removes duplicates and supports fast membership checks."
+            },
+            {
+              "question": "You need to keep items in order and allow duplicates. Which structure is best?",
+              "answer": "A list, because it preserves order and allows repeated values."
+            },
+            {
+              "question": "You want a fixed pair of (x, y) coordinates that should not change. What should you use?",
+              "answer": "A tuple, because it is immutable and suitable for fixed records."
+            },
+            {
+              "question": "Your code throws KeyError when accessing a dictionary. How can you avoid that?",
+              "answer": "Use dict.get(key, default) or check if key in dict before access."
+            },
+            {
+              "question": "You need to remove duplicates from a list quickly. What is the simplest method?",
+              "answer": "Convert the list to a set (and back to list if order is not important)."
+            },
+            {
+              "question": "You want to count frequencies of words in a paragraph. Which structure fits best?",
+              "answer": "A dictionary mapping word to count."
+            },
+            {
+              "question": "You need to check membership many times. Which structure is fastest?",
+              "answer": "A set, because membership tests are O(1) on average."
+            },
+            {
+              "question": "You need to store a list of students where each student has name and grades. How can you model this?",
+              "answer": "Use a list of dictionaries (or list of objects) with keys like name and grades."
+            },
+            {
+              "question": "Why is a dictionary better than a list for ID lookups?",
+              "answer": "Dictionary access is constant time on average, while list search is linear."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Data structures organize data so you can access and update it efficiently. Lists are best for ordered sequences, dictionaries for fast lookups, sets for uniqueness, and tuples for fixed records.<br><br><strong>Lists & Tuples:</strong> Lists are mutable and ideal for collections you modify. Tuples are immutable and useful for fixed records (e.g., coordinates). Both use zero‑based indexing and slicing.<br><br><strong>Dictionaries:</strong> Use key‑value pairs for fast lookups by name or ID. The get() method avoids KeyError and allows default values. Dictionaries are central to real‑world data models in Python.<br><br><strong>Sets:</strong> Use sets for fast membership and removing duplicates. They are unordered and cannot store duplicate values.<br><br><strong>Best Practice:</strong> Choose the simplest structure that gives the right access speed and clarity."
         }
       ],
       "exam": {
@@ -244,9 +381,52 @@
             "Explain why a 4K image has more pixels than Full HD",
             "Calculate total pixels: A 1920x1080 image has how many pixels?",
             "Compare file sizes of the same image in different formats",
-            "Explain the trade-off between image quality and file size"
+            "Explain the trade-off between image quality and file size",
+            "List two situations where PNG is better than JPEG"
           ],
-          "deepNotes": "A digital image is a 2D array of pixels. Each pixel is the smallest unit and contains color information. Resolution describes the image dimensions (e.g., 1920x1080 means 1920 pixels wide, 1080 pixels tall). DPI (dots per inch) and PPI (pixels per inch) measure density - higher values mean more detail but larger files. Image formats are stored as files: JPEG uses lossy compression (some data lost but smaller file), PNG uses lossless compression (no data lost but larger file), GIF supports animation. Color depth (measured in bits) determines how many colors can be represented: 8-bit = 256 colors, 24-bit = 16 million colors. Understanding these concepts is foundational to image processing."
+          "scenarioQuestions": [
+            {
+              "question": "A 4K photo looks sharper than a Full HD photo on the same screen. What is the main reason?",
+              "answer": "4K has a higher resolution (more pixels), so it stores more detail that can be displayed when the screen supports it."
+            },
+            {
+              "question": "A designer saves a logo as JPEG and it looks blurry. What format should be used and why?",
+              "answer": "Use PNG or SVG. PNG is lossless and keeps edges sharp; SVG is vector and scales perfectly."
+            },
+            {
+              "question": "A 12MP camera photo is downsampled to 1080p. What changes?",
+              "answer": "Resolution drops (fewer pixels), which reduces detail and file size."
+            },
+            {
+              "question": "Why does a low‑resolution image look pixelated when zoomed?",
+              "answer": "Pixels are stretched, revealing the blocky grid because there isn’t enough detail."
+            },
+            {
+              "question": "Which is better for screenshots of text: PNG or JPEG?",
+              "answer": "PNG, because it preserves sharp edges without compression artifacts."
+            },
+            {
+              "question": "An image is 3000×2000. How many total pixels is that?",
+              "answer": "6,000,000 pixels (3,000 × 2,000)."
+            },
+            {
+              "question": "Why do phone photos take more storage than old camera photos?",
+              "answer": "Higher resolution, higher bit depth, and less compression create larger files."
+            },
+            {
+              "question": "When would BMP be a bad choice?",
+              "answer": "When file size matters, because BMP is uncompressed and very large."
+            },
+            {
+              "question": "Why are GIFs poor for full‑color photos?",
+              "answer": "GIF supports only 256 colors, so gradients and rich colors band."
+            },
+            {
+              "question": "What does increasing bit depth improve?",
+              "answer": "More possible colors and smoother gradients, but larger file sizes."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> A digital image is a 2D grid of pixels. Each pixel stores color values, and the total number of pixels defines the resolution.<br><br><strong>Resolution:</strong> Resolution is width × height (e.g., 1920 × 1080). More pixels mean more detail but larger files. Pixel density (PPI/DPI) affects print sharpness and screen clarity.<br><br><strong>Formats:</strong> JPEG is lossy (small size, some detail loss). PNG is lossless (larger but sharp). GIF has limited colors and supports animation. BMP is uncompressed and very large.<br><br><strong>Color Depth:</strong> Bit depth controls how many colors are possible. 24‑bit RGB equals 16.7 million colors. Higher bit depth reduces banding in gradients but increases file size."
         },
         {
           "id": "m2",
@@ -280,9 +460,52 @@
             "Calculate what color RGB(128, 128, 128) produces (hint: all equal)",
             "Convert a color image to grayscale mentally by averaging RGB values",
             "Understand why changing Saturation in HSV makes colors more or less vivid",
-            "Explain the difference between RGB and CMYK and why each is used"
+            "Explain the difference between RGB and CMYK and why each is used",
+            "Describe a real case where HSV is easier than RGB"
           ],
-          "deepNotes": "RGB is the additive color model - it works by combining light (used in screens). R=255, G=255, B=255 creates white (all light), R=0, G=0, B=0 creates black (no light). Each color channel is typically 8 bits (0-255), so there are 256^3 = 16 million possible colors in 24-bit RGB. HSV (Hue-Saturation-Value) is more intuitive for humans: Hue is the actual color (0-360 degrees), Saturation is color intensity (0-100%), Value is brightness. CMYK is subtractive (ink on paper) and is complementary to RGB - it's used for printing. Grayscale represents images in shades of gray (0=black to 255=white), often created by averaging or weighting RGB values. Understanding multiple color models is essential for different applications - RGB for screens, CMYK for printing, HSV for intuitive editing."
+          "scenarioQuestions": [
+            {
+              "question": "A photo looks too yellow under indoor lighting. Which adjustment is most appropriate?",
+              "answer": "White balance. Reduce the warm/yellow cast by boosting blue or reducing red/yellow."
+            },
+            {
+              "question": "Why does RGB(128, 128, 128) look gray?",
+              "answer": "All three channels are equal, so there is no color dominance. That produces a neutral gray."
+            },
+            {
+              "question": "You need to isolate the color range of a red object. Which model is easier than RGB?",
+              "answer": "HSV, because hue directly represents color and is easier to threshold."
+            },
+            {
+              "question": "A printer output looks dull compared to the screen. Why?",
+              "answer": "Screens use additive RGB and have wider gamut; printers use subtractive CMYK with a smaller gamut."
+            },
+            {
+              "question": "Why does a grayscale image still keep detail?",
+              "answer": "It preserves luminance (brightness) values, which carry most structural detail."
+            },
+            {
+              "question": "What happens if you set saturation to 0 in HSV?",
+              "answer": "The image becomes grayscale because all color intensity is removed."
+            },
+            {
+              "question": "Why is green often weighted more in grayscale conversion?",
+              "answer": "Human vision is most sensitive to green, so weighted formulas preserve perceived brightness."
+            },
+            {
+              "question": "Which color model is best for print workflows?",
+              "answer": "CMYK, because it matches ink absorption behavior."
+            },
+            {
+              "question": "Why is RGB called additive?",
+              "answer": "Adding light from red, green, and blue channels increases brightness toward white."
+            },
+            {
+              "question": "A designer wants to adjust “brightness” without changing hue. Which model helps?",
+              "answer": "HSV or HSL, because brightness/lightness is a separate component."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> RGB is the additive color model used by screens. R=G=B gives grayscale; R=G=B=255 is white and 0 is black.<br><br><strong>HSV/HSL:</strong> HSV separates color (Hue), intensity (Saturation), and brightness (Value), making editing easier for humans. HSL uses Lightness instead of Value and can feel more intuitive for balancing tones.<br><br><strong>CMYK:</strong> CMYK is subtractive and used for printing. It models ink absorption rather than light emission and has a smaller gamut than most displays.<br><br><strong>Grayscale:</strong> Grayscale can be created by averaging RGB or using weighted values that reflect higher sensitivity to green. This preserves perceived brightness and detail."
         },
         {
           "id": "m3",
@@ -316,9 +539,52 @@
             "Describe how a blur filter works (averaging neighboring pixels)",
             "Explain why compression is essential for social media and streaming",
             "Design a basic image enhancement workflow (adjust brightness, then contrast)",
-            "Research and explain how facial recognition finds faces in images"
+            "Research and explain how facial recognition finds faces in images",
+            "Compare lossy vs lossless compression with examples"
           ],
-          "deepNotes": "Image enhancement improves visual quality. Brightness adjustment adds a value to all RGB components. Contrast adjustment multiplies RGB values, making light areas lighter and dark areas darker. Filters like blur work through convolution - a mathematical operation that applies a kernel (small matrix) to each pixel and its neighbors. Blur averages surrounding pixels making images softer. Sharpen emphasizes differences making edges crisp. Edge detection filters highlight boundaries between objects. Histograms show the distribution of pixel values - histogram equalization spreads values across the full range to improve contrast. Compression reduces file size: lossy (like JPEG) removes details humans can't notice easily, lossless (like PNG) preserves all data. Noise appears as random pixels, often from camera sensors; noise reduction (like Gaussian blur) smooths it. Image segmentation divides images into meaningful regions. All these techniques are used in medical imaging, autonomous vehicles, and photo editing software."
+          "scenarioQuestions": [
+            {
+              "question": "A photo looks noisy in low light. Which two steps would you apply first?",
+              "answer": "Apply noise reduction (e.g., Gaussian blur or denoising) and then adjust contrast to recover detail."
+            },
+            {
+              "question": "Your image looks flat. What technique can spread pixel values to improve contrast?",
+              "answer": "Histogram equalization. It redistributes values to use the full intensity range."
+            },
+            {
+              "question": "Edges look too soft after denoising. What should you try?",
+              "answer": "Apply mild sharpening or use edge‑preserving denoising."
+            },
+            {
+              "question": "A blur filter removed detail you needed. What alternative could you use?",
+              "answer": "Use a smaller kernel or a bilateral filter to preserve edges."
+            },
+            {
+              "question": "Why is compression important for streaming video?",
+              "answer": "It reduces bandwidth and storage requirements while keeping quality acceptable."
+            },
+            {
+              "question": "You want to highlight object boundaries. Which filter helps?",
+              "answer": "Edge detection filters like Sobel or Canny."
+            },
+            {
+              "question": "A photo is too dark overall. Should you raise brightness or contrast first?",
+              "answer": "Start with brightness to lift midtones, then adjust contrast for depth."
+            },
+            {
+              "question": "When is lossless compression required?",
+              "answer": "When every pixel matters, like medical imaging or archival files."
+            },
+            {
+              "question": "What does histogram equalization do to a washed‑out image?",
+              "answer": "It increases contrast by spreading pixel intensities across the full range."
+            },
+            {
+              "question": "Why can sharpening increase noise?",
+              "answer": "Sharpening amplifies high‑frequency details, which can also amplify noise."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Enhancement improves visibility of details and makes images easier to analyze or view.<br><br><strong>Filters:</strong> Convolution applies a kernel to each pixel. Blur averages neighbors; sharpen emphasizes differences. Edge detection highlights boundaries for segmentation or feature detection.<br><br><strong>Histogram:</strong> A histogram shows pixel intensity distribution. Equalization spreads values to increase contrast in low‑contrast images.<br><br><strong>Compression:</strong> Lossy compression (JPEG) reduces size by discarding detail; lossless (PNG) preserves all pixels. Choose based on whether accuracy or size is more important.<br><br><strong>Noise:</strong> Low light and sensors introduce noise. Denoising improves clarity but may soften edges, so it’s often balanced with sharpening."
         }
       ],
       "exam": {
@@ -448,9 +714,52 @@
             "Analyze a design and suggest improvements for colorblind accessibility",
             "Explain why afterimages occur (hint: cone cell fatigue)",
             "Design a traffic system that works for colorblind individuals",
-            "Research which colors are problematic for different types of color blindness"
+            "Research which colors are problematic for different types of color blindness",
+            "Explain why green is often used for night-vision displays"
           ],
-          "deepNotes": "The human eye contains three types of color-sensitive cone cells: short (S) wavelengths (blue, ~420nm), medium (M) wavelengths (green, ~530nm), and long (L) wavelengths (red, ~560nm). We perceive color through signals from these cones to the brain. Color blindness occurs when one or more cone types don't function properly. Red-green color blindness (most common, 8% of males) means reduced sensitivity to red and green. Complete color blindness (monochromacy) means seeing only in grayscale, extremely rare. When designing, avoid relying solely on color to convey information. Use patterns, shapes, or text labels alongside colors. Metamerism is interesting - two different wavelength combinations can appear identical if they stimulate the same combination of cones. This is how color displays work with just RGB. Afterimages occur because viewing a color fatigues those specific cones; when you look away, the unstimulated cones respond, creating the opposite color."
+          "scenarioQuestions": [
+            {
+              "question": "Why is green usually detected more easily than red in human vision?",
+              "answer": "Human eyes have more M-cones (green-sensitive) and peak sensitivity near green wavelengths. This makes green appear brighter and easier to detect than red at the same intensity."
+            },
+            {
+              "question": "A dashboard uses only red and green to show status. What accessibility problem might occur?",
+              "answer": "Red-green color blindness can prevent users from distinguishing the statuses. Use icons, labels, or patterns in addition to color."
+            },
+            {
+              "question": "Why do traffic lights keep a fixed vertical order?",
+              "answer": "It helps colorblind users rely on position when color is ambiguous."
+            },
+            {
+              "question": "Why does green appear brighter than red at the same intensity?",
+              "answer": "The human eye is most sensitive to green wavelengths, so it appears brighter."
+            },
+            {
+              "question": "What causes afterimages after staring at a bright color?",
+              "answer": "Cone fatigue. The overstimulated cones temporarily reduce sensitivity, creating a complementary afterimage."
+            },
+            {
+              "question": "Why should you avoid red/green-only charts?",
+              "answer": "They are difficult for red‑green colorblind users; use labels or patterns too."
+            },
+            {
+              "question": "Why are night-vision displays often green?",
+              "answer": "Green is perceived as brighter and the eye distinguishes more shades of green."
+            },
+            {
+              "question": "What is metamerism in simple terms?",
+              "answer": "Different light spectra can appear the same color because they stimulate cones similarly."
+            },
+            {
+              "question": "How can you design a colorblind-safe UI?",
+              "answer": "Use contrast, shapes, labels, and avoid relying solely on color."
+            },
+            {
+              "question": "Why is contrast more important than color alone?",
+              "answer": "Contrast improves readability for all users, including those with color vision deficiencies."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Human color perception depends on three cone types: S (blue), M (green), and L (red). The brain compares their signals to create color.<br><br><strong>Sensitivity:</strong> Vision peaks around green wavelengths, making green appear brighter than red or blue at the same intensity. This is why green is used in night‑vision and instrumentation.<br><br><strong>Color Blindness:</strong> Red‑green color blindness is most common. Avoid using red/green alone; pair with icons, labels, or patterns.<br><br><strong>Metamerism:</strong> Different wavelength mixtures can appear identical if they stimulate cones similarly—important in display and lighting design.<br><br><strong>Design Tip:</strong> Use contrast, shape, and labels to communicate information reliably for all viewers."
         },
         {
           "id": "m2",
@@ -484,9 +793,52 @@
             "Explain why LAB is device-independent while RGB is device-dependent",
             "Research why professional photographers use color profiles",
             "Calculate the impact of color gamut on printing vs screens",
-            "Design a workflow using RGB for screen and converting to CMYK for print"
+            "Design a workflow using RGB for screen and converting to CMYK for print",
+            "Explain why the same RGB color looks different on two monitors"
           ],
-          "deepNotes": "RGB is device-dependent - the same RGB values look different on different monitors due to hardware differences. This limitation led to device-independent spaces. HSV (Hue-Saturation-Value) and HSL (Hue-Saturation-Lightness) are cylindrical representations of RGB, more intuitive for human color selection but still device-dependent. LAB is truly device-independent - it's based on human color perception. L represents Lightness (0-100), A represents green-red spectrum, B represents blue-yellow spectrum. LAB is useful for color difference calculations because similar distances in LAB space represent similar perceptual differences. XYZ is based on CIE standard observer (average human eye) and is the foundation for many modern color spaces. Color gamut is the range of colors a device can produce - monitors have larger gamuts than printers. ICC profiles bridge this gap by translating colors between spaces, crucial for professional work. Conversion between spaces involves matrix transformations - complex mathematics that software handles for you."
+          "scenarioQuestions": [
+            {
+              "question": "A designer’s colors look different on another screen. What caused this and how can it be fixed?",
+              "answer": "RGB is device-dependent. Use color management with ICC profiles and calibrate displays for consistent output."
+            },
+            {
+              "question": "Why is LAB preferred for measuring color difference?",
+              "answer": "LAB is perceptually uniform, so equal distances reflect similar perceived differences."
+            },
+            {
+              "question": "Why does the same RGB value appear different on two monitors?",
+              "answer": "Different monitor gamuts and calibration cause color shifts."
+            },
+            {
+              "question": "When should you convert RGB to CMYK?",
+              "answer": "When preparing for print, because printers use CMYK inks."
+            },
+            {
+              "question": "What does a wide-gamut monitor allow?",
+              "answer": "It can display a broader range of colors than standard sRGB screens."
+            },
+            {
+              "question": "Why is HSV easier for selecting colors than RGB?",
+              "answer": "HSV separates hue, saturation, and brightness—closer to human intuition."
+            },
+            {
+              "question": "Why is LAB called device-independent?",
+              "answer": "It models human perception rather than device output, so values map consistently."
+            },
+            {
+              "question": "What is gamut clipping?",
+              "answer": "When colors outside a device’s gamut are forced to the closest reproducible color."
+            },
+            {
+              "question": "What is the purpose of ICC profiles?",
+              "answer": "To map colors between devices and ensure consistency."
+            },
+            {
+              "question": "Why is XYZ important in color science?",
+              "answer": "It is the foundation for many color spaces and standard observer models."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Color spaces define how colors are represented and converted. RGB is device‑dependent; LAB is device‑independent and based on human perception.<br><br><strong>LAB:</strong> L = lightness, A = green‑red axis, B = blue‑yellow axis. LAB is excellent for measuring perceptual differences and color correction.<br><br><strong>Gamut:</strong> Each device has a limited range of colors. Monitors often display more colors than printers. ICC profiles map between gamuts to maintain consistency.<br><br><strong>Conversion:</strong> Conversions use matrix transforms and tone curves. Understanding this helps avoid color shifts in workflows."
         },
         {
           "id": "m3",
@@ -521,9 +873,52 @@
             "Create a colorblind-safe palette for data visualization",
             "Plan a professional photo printing workflow with color management",
             "Analyze brand colors of major companies and their psychological impact",
-            "Design a UI color system that works in light and dark modes"
+            "Design a UI color system that works in light and dark modes",
+            "Create a complementary palette and explain the contrast"
           ],
-          "deepNotes": "Professional color management ensures consistency across the entire workflow. A typical photography workflow: capture in RAW (maximum data), develop in a wide-gamut space, edit using ICC profiles, proof on calibrated monitors, output to specific device profiles. Soft proofing shows on-screen how an image will look when printed - it uses ICC profiles to simulate the printer's color space. Display calibration using tools like colorimeter ensures your monitor accurately displays colors - critical for professional work. Color harmony helps create visually pleasing combinations: complementary colors are opposite on the color wheel (high contrast), analogous colors are adjacent (harmonious), triadic uses three evenly spaced colors. Color psychology: warm colors (red, orange, yellow) evoke energy and excitement; cool colors (blue, green) evoke calm and trust; warm colors advance visually while cool colors recede. For data visualization, using sequential color schemes (light to dark) works for ordered data, diverging schemes for data with meaningful midpoint. Viridis and similar perceptually uniform colormaps are colorblind-friendly alternatives to rainbow colormaps. Brand color consistency requires managing exact specifications (Pantone numbers, RGB values, CMYK values) for all media to maintain brand recognition."
+          "scenarioQuestions": [
+            {
+              "question": "A finance app wants to build trust. Which color family is a better default and why?",
+              "answer": "Cool colors like blue/green suggest stability and trust. Warm colors can feel urgent or aggressive."
+            },
+            {
+              "question": "Why would you use a colorblind-safe palette in dashboards?",
+              "answer": "It ensures all users can interpret the data correctly; color alone should not be the only cue."
+            },
+            {
+              "question": "A brand needs a premium feel. Which palette type is common?",
+              "answer": "Low‑saturation neutrals with one accent color, or deep blues with gold accents."
+            },
+            {
+              "question": "Why do designers avoid pure black backgrounds for large text blocks?",
+              "answer": "High contrast can cause eye strain; dark gray often improves readability."
+            },
+            {
+              "question": "What is soft proofing used for?",
+              "answer": "To simulate print output on a calibrated display before printing."
+            },
+            {
+              "question": "Which palette creates strong contrast for alerts?",
+              "answer": "Complementary colors, such as blue/orange or purple/yellow."
+            },
+            {
+              "question": "Why is display calibration important?",
+              "answer": "It ensures color accuracy so edits match print and other devices."
+            },
+            {
+              "question": "How do you make charts accessible beyond color?",
+              "answer": "Use labels, patterns, and distinct shapes in addition to color."
+            },
+            {
+              "question": "A product uses red for success and green for errors. What’s the issue?",
+              "answer": "It conflicts with common color meaning and can confuse users; use conventional mapping."
+            },
+            {
+              "question": "Why are triadic palettes balanced?",
+              "answer": "They use three evenly spaced hues, providing contrast without dominance."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Professional color management keeps colors consistent across devices and media.<br><br><strong>Workflow:</strong> Capture → edit in wide gamut → soft proof on calibrated display → export using device profile to avoid surprises in print.<br><br><strong>Harmony & Psychology:</strong> Complementary colors create strong contrast, analogous colors feel smooth, and triadic palettes are balanced. Warm colors feel energetic; cool colors feel calm and trustworthy.<br><br><strong>Accessibility:</strong> Use contrast ratios and colorblind‑safe palettes for charts. Pair color with labels or shapes to ensure readability."
         }
       ],
       "exam": {
@@ -654,9 +1049,52 @@
             "Explain the difference between indexed and direct color representation",
             "Design a color image format that minimizes file size while preserving quality",
             "Explain how PNG's alpha channel enables transparency",
-            "Compare storage efficiency of BMP vs PNG for colored images"
+            "Compare storage efficiency of BMP vs PNG for colored images",
+            "Identify when to use indexed color vs direct color"
           ],
-          "deepNotes": "Color images are typically stored as three separate channels: Red, Green, and Blue. Each channel is an 8-bit grayscale image (0-255 values). A pixel's color is determined by the combination of values in all three channels. For example, a red pixel has R=255, G=0, B=0. Storage can be interleaved (RGBRGBRGB...) or planar (all R values, then all G values, then all B values). Bytes per pixel in RGB is 3 (1 byte per channel); with alpha it's 4. Indexed color uses a color palette - each pixel stores an index (0-255) pointing to a color in the palette. This saves space but limits colors to 256. Direct color stores the actual RGB values. The alpha channel (A) is sometimes added as a fourth channel for transparency (0=fully transparent, 255=fully opaque). Some formats like GIF support transparency, while basic JPEG doesn't. Understanding storage representation is crucial for efficient image processing and compression."
+          "scenarioQuestions": [
+            {
+              "question": "A web icon needs transparent background and crisp edges. Which format is best?",
+              "answer": "PNG with alpha channel. It preserves sharp edges and supports transparency."
+            },
+            {
+              "question": "A large photo file must be small for email. What trade‑off will likely be made?",
+              "answer": "Use JPEG with lossy compression—smaller file size at the cost of some detail."
+            },
+            {
+              "question": "Why does an RGBA image take more space than RGB?",
+              "answer": "RGBA adds an alpha channel (4 bytes per pixel instead of 3)."
+            },
+            {
+              "question": "You need to process channels separately for analysis. Which storage layout helps?",
+              "answer": "Planar storage, because each channel is stored together."
+            },
+            {
+              "question": "Why is indexed color used in simple icons?",
+              "answer": "It reduces file size by using a limited palette."
+            },
+            {
+              "question": "What does a pixel with (R=0, G=255, B=0) look like?",
+              "answer": "Bright green."
+            },
+            {
+              "question": "When is interleaved RGB better than planar?",
+              "answer": "For display and direct rendering because pixels are stored together."
+            },
+            {
+              "question": "Why can GIF show transparency but not true alpha?",
+              "answer": "GIF uses a single transparent color index, not per‑pixel alpha values."
+            },
+            {
+              "question": "How many bytes are needed for a 100×100 RGB image?",
+              "answer": "100 × 100 × 3 = 30,000 bytes."
+            },
+            {
+              "question": "Why is PNG preferred for logos?",
+              "answer": "Lossless compression keeps edges sharp and supports transparency."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Color images store three channels (R, G, B), each an 8‑bit grayscale layer by default.<br><br><strong>Storage:</strong> Interleaved storage saves pixels as RGBRGB...; planar saves all R, then all G, then all B. Interleaved is common for display, planar for processing pipelines.<br><br><strong>Depth:</strong> 24‑bit color uses 3 bytes per pixel; adding alpha makes it 32‑bit (4 bytes).<br><br><strong>Indexed Color:</strong> Stores palette indexes (0–255) to reduce size but limits colors. Direct color stores actual RGB values for full fidelity."
         },
         {
           "id": "m2",
@@ -691,9 +1129,52 @@
             "Explain white balance correction and how it removes color casts",
             "Design a filter that darkens reds while brightening blues",
             "Create a sepia tone effect by adjusting channels",
-            "Plan color correction for a photo taken under fluorescent lighting"
+            "Plan color correction for a photo taken under fluorescent lighting",
+            "Explain how gamma correction affects shadows"
           ],
-          "deepNotes": "Color adjustments operate on individual channels. Brightness adjustment adds a constant to all RGB values uniformly. Contrast stretches the range of values (values < 128 become darker, > 128 become lighter). White balance corrects for different light sources - cool (blue) light requires reducing blue and/or boosting red to look natural. Color cast appears when one color dominates - often fixed by adjusting that channel. Hue rotation shifts all colors around the color wheel equally. Saturation adjustment multiplies the distance of each pixel from the grayscale center - increasing saturation makes colors more vivid. Selective color adjustment isolates specific color ranges (e.g., only reds) and adjusts them independently, powerful for subtle corrections. Channel swaps (swap R with B) create artistic effects. Gamma correction is nonlinear brightness adjustment following human perception (we're more sensitive to shadow details). Color inversion (each channel becomes 255-value) creates negative effects. Understanding these operations is essential for professional image editing and computational color correction."
+          "scenarioQuestions": [
+            {
+              "question": "A photo taken indoors looks too orange. What adjustment fixes this?",
+              "answer": "White balance. Reduce warm tones by decreasing red/yellow or boosting blue."
+            },
+            {
+              "question": "You want richer colors without changing brightness. What should you change?",
+              "answer": "Increase saturation. It intensifies colors while preserving overall brightness."
+            },
+            {
+              "question": "A sky looks too dark after contrast adjustment. What should you tweak?",
+              "answer": "Lower contrast or adjust highlights to recover brightness."
+            },
+            {
+              "question": "Why is gamma correction preferred over simple brightness for shadows?",
+              "answer": "Gamma lifts shadows without over‑brightening highlights."
+            },
+            {
+              "question": "A portrait has greenish skin tones. What’s the first fix?",
+              "answer": "Adjust white balance or reduce the green channel."
+            },
+            {
+              "question": "Why can channel swapping look unnatural?",
+              "answer": "It breaks natural color relationships (e.g., skies become red)."
+            },
+            {
+              "question": "What does a sepia filter do?",
+              "answer": "It increases red and decreases blue to create a warm brown tone."
+            },
+            {
+              "question": "How does selective color differ from global color changes?",
+              "answer": "Selective color targets only specific hues while leaving others unchanged."
+            },
+            {
+              "question": "Why can excessive saturation make images look fake?",
+              "answer": "It pushes colors beyond natural ranges, causing clipping and artifacts."
+            },
+            {
+              "question": "What’s the safest order for corrections?",
+              "answer": "White balance → exposure/brightness → contrast → saturation."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Color manipulation modifies channels to correct lighting or create artistic effects.<br><br><strong>Brightness/Contrast:</strong> Brightness adds a constant; contrast stretches values around the midpoint. Too much contrast can crush shadows or blow highlights.<br><br><strong>White Balance:</strong> Removes color casts caused by different light sources (warm indoor, cool daylight).<br><br><strong>Saturation & Hue:</strong> Saturation controls intensity; hue shifts the color wheel. These are powerful for stylization.<br><br><strong>Gamma:</strong> Non‑linear correction that protects highlights while lifting shadows, closer to how humans perceive brightness."
         },
         {
           "id": "m3",
@@ -728,9 +1209,52 @@
             "Explain how color clustering can separate objects in an image",
             "Plan a color restoration workflow for faded old photographs",
             "Research Bayer pattern and explain demosaicing complexity",
-            "Design color analysis for detecting specific medical conditions"
+            "Design color analysis for detecting specific medical conditions",
+            "Compare HSV vs RGB for color segmentation tasks"
           ],
-          "deepNotes": "Color-based segmentation identifies pixels within a specific color range - useful for separating objects by color. Chroma key (green screen) is color-based segmentation where pixels matching the key color (usually green or blue) are replaced with a background. It requires careful edge handling to avoid color fringing. Color clustering groups similar colors together - useful for color quantization (reducing number of colors) and object detection. In-painting restores missing or damaged color information by interpolating from surrounding pixels. Demosaicing is crucial - digital camera sensors have a Bayer pattern (alternating red, green, blue pixels) instead of full color at each pixel. Sophisticated algorithms interpolate missing color channels at each pixel. RAW processing uses demosaicing to create full RGB images. Color-space optimization chooses the best space for specific operations - HSV is better for color-based tasks, LAB for perceptually uniform operations, RGB for most algorithms. Color stereo uses color information for 3D reconstruction in addition to intensity. Computational color correction automatically adjusts colors using machine learning or mathematical models. These advanced techniques power modern computational photography, medical imaging, and video production."
+          "scenarioQuestions": [
+            {
+              "question": "Your green screen footage shows green edges around hair. What step helps fix this?",
+              "answer": "Edge refinement and spill suppression. It removes green fringing and cleans the matte."
+            },
+            {
+              "question": "Why is HSV often better than RGB for color-based segmentation?",
+              "answer": "HSV separates hue from brightness, making it easier to isolate color ranges under different lighting."
+            },
+            {
+              "question": "Why does demosaicing matter in RAW photography?",
+              "answer": "The sensor captures a Bayer pattern; demosaicing reconstructs full RGB at each pixel."
+            },
+            {
+              "question": "How can clustering help reduce file size?",
+              "answer": "By reducing the number of unique colors (quantization), it enables smaller palettes."
+            },
+            {
+              "question": "What’s a key risk in color-based segmentation?",
+              "answer": "Lighting changes shift colors, so thresholds may fail without normalization."
+            },
+            {
+              "question": "Why use LAB for color difference measurements?",
+              "answer": "LAB is perceptually uniform, so distances match human perception."
+            },
+            {
+              "question": "What is chroma key used for?",
+              "answer": "Replacing a solid background with another scene in video production."
+            },
+            {
+              "question": "How does in‑painting restore missing areas?",
+              "answer": "It interpolates colors from surrounding pixels to fill gaps."
+            },
+            {
+              "question": "Why is green usually chosen for chroma key?",
+              "answer": "Green has high brightness perception and is less common in skin tones."
+            },
+            {
+              "question": "What does color quantization do?",
+              "answer": "It reduces the number of colors while preserving the overall visual appearance."
+            }
+          ],
+          "deepNotes": "<strong>Overview:</strong> Advanced color processing uses segmentation, clustering, and restoration to analyze or modify images beyond simple filters.<br><br><strong>Chroma Key:</strong> Removes a color background (green/blue) and replaces it with another scene. Edge handling and spill suppression are critical to avoid artifacts.<br><br><strong>Clustering:</strong> Groups similar colors to reduce palette size or detect regions. Useful in compression and object detection.<br><br><strong>Demosaicing:</strong> Converts Bayer sensor data into full RGB pixels. High‑quality demosaicing preserves detail and avoids artifacts like color moiré.<br><br><strong>Color Spaces:</strong> HSV is ideal for segmentation; LAB is good for perceptual comparisons. Choose the space that matches the task."
         }
       ],
       "exam": {

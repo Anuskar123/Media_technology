@@ -168,6 +168,38 @@ const app = {
     const practice = document.getElementById('modulePractice');
     practice.innerHTML = mod.practice.map(task => `<li>${task}</li>`).join('');
 
+    // Scenario Questions
+    const scenariosContainer = document.getElementById('moduleScenarios');
+    const scenarios = mod.scenarioQuestions || [];
+    if (scenarios.length === 0) {
+      scenariosContainer.innerHTML = '<p class="muted">No scenario questions yet.</p>';
+    } else {
+      scenariosContainer.innerHTML = scenarios
+        .map((scenario, index) => `
+          <div class="scenario-card">
+            <div class="scenario-question">🧩 Scenario ${index + 1}: ${scenario.question}</div>
+            <button class="ghost btn-small" data-scenario="${index}">Show Answer</button>
+            <div class="scenario-answer" data-answer="${index}" hidden>${scenario.answer}</div>
+          </div>
+        `)
+        .join('');
+
+      scenariosContainer.querySelectorAll('button[data-scenario]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = btn.getAttribute('data-scenario');
+          const answerEl = scenariosContainer.querySelector(`[data-answer="${idx}"]`);
+          const isHidden = answerEl.hasAttribute('hidden');
+          if (isHidden) {
+            answerEl.removeAttribute('hidden');
+            btn.textContent = 'Hide Answer';
+          } else {
+            answerEl.setAttribute('hidden', '');
+            btn.textContent = 'Show Answer';
+          }
+        });
+      });
+    }
+
     // Deep Notes
     const notes = document.getElementById('moduleNotes');
     notes.innerHTML = `<p>${mod.deepNotes}</p>`;
@@ -177,7 +209,7 @@ const app = {
     document.getElementById('pdfViewer').src = pdfPath;
 
     // Progress
-    const moduleIndex = this.currentCourse.modules.findIndex(m => m.id === moduleId);
+    const moduleIndex = this.currentCourse.modules.findIndex(m => m.id === this.currentModule.id);
     document.getElementById('progressInfo').innerHTML = `
       <strong>${moduleIndex + 1}/${this.currentCourse.modules.length}</strong>
       <div style="margin-top: 8px; height: 6px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">

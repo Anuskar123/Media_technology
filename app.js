@@ -5,7 +5,8 @@ const app = {
   currentModule: null,
   courses: [],
   users: [],
-  masterPassword: "hardwork",
+  // Hashed password (SHA-256 hash of the actual password)
+  masterPasswordHash: "307034ff261c1566ae9f3860a1662f8ec526e2fbb6ee3bf20e7282dcd29734dc",
   init() {
     this.loadData();
     this.setupEventListeners();
@@ -18,6 +19,14 @@ const app = {
         this.users = data.users;
       })
       .catch(err => console.error('Failed to load course data:', err));
+  },
+  // Hash function using SHA-256
+  async hashPassword(password) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   },
   setupEventListeners() {
     document.getElementById('loginBtn').addEventListener('click', () => this.handleLogin());
@@ -34,7 +43,7 @@ const app = {
     document.getElementById('submitExamBtn').addEventListener('click', () => this.submitExam());
     document.getElementById('pdfFullscreenBtn')?.addEventListener('click', () => this.togglePdfFullscreen());
   },
-  handleLogin() {
+  async handleLogin() {
     const pin = document.getElementById('pinInput').value.trim();
     const password = document.getElementById('passwordInput').value.trim();
     
@@ -53,7 +62,9 @@ const app = {
       return;
     }
     
-    if (password !== this.masterPassword) {
+    // Hash the entered password and compare with stored hash
+    const passwordHash = await this.hashPassword(password);
+    if (passwordHash !== this.masterPasswordHash) {
       this.showError('Invalid password. Please try again.');
       return;
     }

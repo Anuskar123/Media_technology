@@ -5,8 +5,7 @@ const app = {
   currentModule: null,
   courses: [],
   users: [],
-  // Hashed password (SHA-256 hash of the actual password)
-  masterPasswordHash: "307034ff261c1566ae9f3860a1662f8ec526e2fbb6ee3bf20e7282dcd29734dc",
+  masterPassword: "hardwork",
   init() {
     this.loadData();
     this.setupEventListeners();
@@ -19,14 +18,6 @@ const app = {
         this.users = data.users;
       })
       .catch(err => console.error('Failed to load course data:', err));
-  },
-  // Hash function using SHA-256
-  async hashPassword(password) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   },
   setupEventListeners() {
     document.getElementById('loginBtn').addEventListener('click', () => this.handleLogin());
@@ -62,9 +53,7 @@ const app = {
       return;
     }
     
-    // Hash the entered password and compare with stored hash
-    const passwordHash = await this.hashPassword(password);
-    if (passwordHash !== this.masterPasswordHash) {
+    if (password !== this.masterPassword) {
       this.showError('Invalid password. Please try again.');
       return;
     }
@@ -72,6 +61,40 @@ const app = {
     this.currentUser = user;
     this.showLoginSuccess();
     this.renderCourseList();
+    this.renderNewSection();
+  },
+  renderNewSection() {
+    const section = document.getElementById('newSection');
+    const list = document.getElementById('newList');
+    if (!section || !list || !this.currentUser) return;
+
+    const newCourses = this.courses.filter(course =>
+      course.isNew && this.currentUser.accessibleCourses.includes(course.id)
+    );
+
+    if (newCourses.length === 0) {
+      section.hidden = true;
+      list.innerHTML = '';
+      return;
+    }
+
+    section.hidden = false;
+    list.innerHTML = newCourses.map(course => `
+      <div class="new-card">
+        <div>
+          <h4>${course.title}</h4>
+          <p>${course.description}</p>
+        </div>
+        <div class="meta-row">
+          <span>${course.totalModules} modules</span>
+          <button class="secondary" data-id="${course.id}">Open</button>
+        </div>
+      </div>
+    `).join('');
+
+    list.querySelectorAll('button[data-id]').forEach(btn => {
+      btn.addEventListener('click', () => this.selectCourse(btn.dataset.id));
+    });
   },
   handleLogout() {
     this.currentUser = null;

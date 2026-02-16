@@ -60,6 +60,40 @@ const app = {
     this.currentUser = user;
     this.showLoginSuccess();
     this.renderCourseList();
+    this.renderNewSection();
+  },
+  renderNewSection() {
+    const section = document.getElementById('newSection');
+    const list = document.getElementById('newList');
+    if (!section || !list || !this.currentUser) return;
+
+    const newCourses = this.courses.filter(course =>
+      course.isNew && this.currentUser.accessibleCourses.includes(course.id)
+    );
+
+    if (newCourses.length === 0) {
+      section.hidden = true;
+      list.innerHTML = '';
+      return;
+    }
+
+    section.hidden = false;
+    list.innerHTML = newCourses.map(course => `
+      <div class="new-card">
+        <div>
+          <h4>${course.title}</h4>
+          <p>${course.description}</p>
+        </div>
+        <div class="meta-row">
+          <span>${course.totalModules} modules</span>
+          <button class="secondary" data-id="${course.id}">Open</button>
+        </div>
+      </div>
+    `).join('');
+
+    list.querySelectorAll('button[data-id]').forEach(btn => {
+      btn.addEventListener('click', () => this.selectCourse(btn.dataset.id));
+    });
   },
   handleLogout() {
     this.currentUser = null;

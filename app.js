@@ -1,4 +1,4 @@
-// Core App Logic
+// Core App Logic - Enhanced Version
 const app = {
   currentUser: null,
   currentCourse: null,
@@ -24,20 +24,19 @@ const app = {
     document.getElementById('pinInput').addEventListener('keypress', e => {
       if (e.key === 'Enter') this.handleLogin();
     });
+    document.getElementById('passwordInput').addEventListener('keypress', e => {
+      if (e.key === 'Enter') this.handleLogin();
+    });
     document.getElementById('logoutBtn').addEventListener('click', () => this.handleLogout());
-      document.getElementById('passwordInput').addEventListener('keypress', e => {
-        if (e.key === 'Enter') this.handleLogin();
-      });
-      document.getElementById('logoutBtn').addEventListener('click', () => this.handleLogout());
-      document.getElementById('startExamBtn').addEventListener('click', () => this.showExam());
+    document.getElementById('startExamBtn').addEventListener('click', () => this.showExam());
     document.getElementById('closeExamBtn').addEventListener('click', () => this.hideExam());
     document.getElementById('submitExamBtn').addEventListener('click', () => this.submitExam());
     document.getElementById('pdfFullscreenBtn')?.addEventListener('click', () => this.togglePdfFullscreen());
   },
-  async handleLogin() {
+  handleLogin() {
     const pin = document.getElementById('pinInput').value.trim();
     const password = document.getElementById('passwordInput').value.trim();
-    
+
     if (!pin) {
       this.showError('Please enter your PIN.');
       return;
@@ -52,7 +51,7 @@ const app = {
       this.showError('Invalid PIN. Contact the administrator.');
       return;
     }
-    
+
     if (password !== this.masterPassword) {
       this.showError('Invalid password. Please try again.');
       return;
@@ -130,7 +129,7 @@ const app = {
       li.innerHTML = `
         <button class="course-btn" data-id="${course.id}">
           <strong>${course.title}</strong>
-          <span class="muted" style="font-size: 0.9rem;">${course.totalModules} modules</span>
+          <span class="muted" style="font-size: 0.9rem;">${course.totalModules} modules • ${course.exam.totalQuestions} questions</span>
         </button>
       `;
       li.querySelector('button').addEventListener('click', () => this.selectCourse(course.id));
@@ -156,14 +155,15 @@ const app = {
     document.getElementById('examArea').hidden = true;
     document.getElementById('courseOverview').hidden = false;
 
-    document.getElementById('courseTitle').textContent = this.currentCourse.title;
+    document.getElementById('courseTitle').textContent = `📖 ${this.currentCourse.title}`;
     document.getElementById('courseDescription').textContent = this.currentCourse.description;
 
     const meta = document.getElementById('courseMeta');
     meta.innerHTML = `
-      <div class="tag">${this.currentCourse.totalModules} Modules</div>
-      <div class="tag">PDF: ${this.currentCourse.pdfFile}</div>
-      <div class="tag" style="cursor: pointer; background: #dbeafe; color: #0284c7;" onclick="app.showFirstModule()">
+      <div class="tag">📚 ${this.currentCourse.totalModules} Modules</div>
+      <div class="tag">📄 ${this.currentCourse.pdfFile}</div>
+      <div class="tag">✅ ${this.currentCourse.exam.totalQuestions} Questions</div>
+      <div class="tag" style="cursor: pointer; background: linear-gradient(135deg, #667eea, #764ba2); color: white;" onclick="app.showFirstModule()">
         → Start Learning
       </div>
     `;
@@ -183,55 +183,61 @@ const app = {
     document.getElementById('moduleArea').hidden = false;
 
     const mod = this.currentModule;
-    document.getElementById('moduleTitle').textContent = mod.title;
-    document.getElementById('moduleLevel').textContent = '📚 ' + mod.level;
+    document.getElementById('moduleTitle').textContent = `📚 ${mod.title}`;
+
+    let levelIcon = '🟢';
+    if (mod.level === 'Intermediate') levelIcon = '🟡';
+    if (mod.level === 'Advanced') levelIcon = '🔴';
+    document.getElementById('moduleLevel').textContent = `${levelIcon} ${mod.level}`;
 
     // Objectives
     const objectives = document.getElementById('moduleObjectives');
-    objectives.innerHTML = mod.objectives.map(obj => `<li>${obj}</li>`).join('');
+    objectives.innerHTML = mod.objectives.map(obj => `<li>✓ ${obj}</li>`).join('');
 
     // Key Concepts
     const concepts = document.getElementById('moduleConcepts');
-    concepts.innerHTML = mod.concepts.map(concept => `<li><strong>${concept}</strong></li>`).join('');
+    concepts.innerHTML = mod.concepts.map(concept => `<li><strong>• ${concept}</strong></li>`).join('');
 
     // Examples
     const examples = document.getElementById('moduleExamples');
-    examples.innerHTML = mod.examples.map(ex => `<li>${ex}</li>`).join('');
+    examples.innerHTML = mod.examples.map(ex => `<li>💡 ${ex}</li>`).join('');
 
     // Practice Tasks
     const practice = document.getElementById('modulePractice');
-    practice.innerHTML = mod.practice.map(task => `<li>${task}</li>`).join('');
+    practice.innerHTML = mod.practice.map(task => `<li>📋 ${task}</li>`).join('');
 
     // Scenario Questions
     const scenariosContainer = document.getElementById('moduleScenarios');
-    const scenarios = mod.scenarioQuestions || [];
-    if (scenarios.length === 0) {
-      scenariosContainer.innerHTML = '<p class="muted">No scenario questions yet.</p>';
-    } else {
-      scenariosContainer.innerHTML = scenarios
-        .map((scenario, index) => `
-          <div class="scenario-card">
-            <div class="scenario-question">🧩 Scenario ${index + 1}: ${scenario.question}</div>
-            <button class="ghost btn-small" data-scenario="${index}">Show Answer</button>
-            <div class="scenario-answer" data-answer="${index}" hidden>${scenario.answer}</div>
-          </div>
-        `)
-        .join('');
+    if (scenariosContainer) {
+      const scenarios = mod.scenarioQuestions || [];
+      if (scenarios.length === 0) {
+        scenariosContainer.innerHTML = '<p class="muted">No scenario questions yet.</p>';
+      } else {
+        scenariosContainer.innerHTML = scenarios
+          .map((scenario, index) => `
+            <div class="scenario-card">
+              <div class="scenario-question">🧩 Scenario ${index + 1}: ${scenario.question}</div>
+              <button class="ghost btn-small" data-scenario="${index}">Show Answer</button>
+              <div class="scenario-answer" data-answer="${index}" hidden>${scenario.answer}</div>
+            </div>
+          `)
+          .join('');
 
-      scenariosContainer.querySelectorAll('button[data-scenario]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const idx = btn.getAttribute('data-scenario');
-          const answerEl = scenariosContainer.querySelector(`[data-answer="${idx}"]`);
-          const isHidden = answerEl.hasAttribute('hidden');
-          if (isHidden) {
-            answerEl.removeAttribute('hidden');
-            btn.textContent = 'Hide Answer';
-          } else {
-            answerEl.setAttribute('hidden', '');
-            btn.textContent = 'Show Answer';
-          }
+        scenariosContainer.querySelectorAll('button[data-scenario]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const idx = btn.getAttribute('data-scenario');
+            const answerEl = scenariosContainer.querySelector(`[data-answer="${idx}"]`);
+            const isHidden = answerEl.hasAttribute('hidden');
+            if (isHidden) {
+              answerEl.removeAttribute('hidden');
+              btn.textContent = 'Hide Answer';
+            } else {
+              answerEl.setAttribute('hidden', '');
+              btn.textContent = 'Show Answer';
+            }
+          });
         });
-      });
+      }
     }
 
     // Deep Notes
@@ -244,11 +250,13 @@ const app = {
 
     // Progress
     const moduleIndex = this.currentCourse.modules.findIndex(m => m.id === this.currentModule.id);
+    const progressPercent = ((moduleIndex + 1) / this.currentCourse.modules.length * 100);
     document.getElementById('progressInfo').innerHTML = `
-      <strong>${moduleIndex + 1}/${this.currentCourse.modules.length}</strong>
-      <div style="margin-top: 8px; height: 6px; background: #e2e8f0; border-radius: 999px; overflow: hidden;">
-        <div style="height: 100%; width: ${((moduleIndex + 1) / this.currentCourse.modules.length * 100)}%; background: #2563eb; border-radius: 999px;"></div>
+      <strong style="display: block; margin-bottom: 8px;">📊 Module ${moduleIndex + 1}/${this.currentCourse.modules.length}</strong>
+      <div style="height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 8px;">
+        <div style="height: 100%; width: ${progressPercent}%; background: linear-gradient(90deg, #667eea, #48bb78); border-radius: 999px; transition: width 0.3s ease;"></div>
       </div>
+      <p style="margin: 0; font-size: 0.85rem; color: #718096;">${Math.round(progressPercent)}% Complete</p>
     `;
 
     // Module Navigation
@@ -257,7 +265,7 @@ const app = {
   togglePdfFullscreen() {
     const pdfViewer = document.getElementById('pdfViewer');
     if (!pdfViewer) return;
-    
+
     if (!document.fullscreenElement) {
       pdfViewer.requestFullscreen().catch(err => {
         console.log('Fullscreen request failed:', err);
@@ -275,17 +283,19 @@ const app = {
     let nav = '<div style="display: flex; gap: 12px; margin-top: 24px; border-top: 1px solid #e2e8f0; padding-top: 12px;">';
 
     if (currentIndex > 0) {
-      nav += `<button class="ghost" onclick="app.selectModule('${modules[currentIndex - 1].id}')">← Previous</button>`;
+      nav += `<button class="ghost" onclick="app.selectModule('${modules[currentIndex - 1].id}')">← Previous Module</button>`;
+    } else {
+      nav += '<div></div>';
     }
 
     nav += '<div style="flex: 1;"></div>';
 
     if (currentIndex < modules.length - 1) {
-      nav += `<button class="ghost" onclick="app.selectModule('${modules[currentIndex + 1].id}')">Next →</button>`;
+      nav += `<button class="ghost" onclick="app.selectModule('${modules[currentIndex + 1].id}')">Next Module →</button>`;
     }
 
     nav += '</div>';
-    
+
     let navDiv = moduleArea.querySelector('[data-nav]');
     if (!navDiv) {
       navDiv = document.createElement('div');
@@ -300,18 +310,18 @@ const app = {
     document.getElementById('examArea').hidden = false;
 
     const exam = this.currentCourse.exam;
-    document.getElementById('examTitle').textContent = exam.title;
-    document.getElementById('examIntro').textContent = exam.intro;
+    document.getElementById('examTitle').textContent = `📝 ${exam.title}`;
+    document.getElementById('examIntro').textContent = `${exam.intro} (Passing Score: ${exam.passingScore}%)`;
 
     const form = document.getElementById('examForm');
     form.innerHTML = exam.questions.map((q, idx) => `
-      <div class="question" style="margin-bottom: 24px; padding: 16px; background: #f8fafc; border-radius: 12px;">
-        <h3 style="margin: 0 0 12px 0; font-size: 1rem;">Q${idx + 1}: ${q.question}</h3>
-        <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="question" style="margin-bottom: 24px; padding: 16px; background: linear-gradient(135deg, #f7fafc, #edf2f7); border-left: 4px solid #667eea; border-radius: 12px;">
+        <h3 style="margin: 0 0 12px 0; font-size: 1rem; color: #1a202c;">Q${idx + 1}. ${q.question}</h3>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
           ${q.options.map((opt, i) => `
-            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-              <input type="radio" name="q${q.id}" value="${i}" />
-              <span>${opt}</span>
+            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 10px; background: white; border-radius: 8px; transition: all 0.2s;">
+              <input type="radio" name="q${q.id}" value="${i}" style="width: 18px; height: 18px; cursor: pointer;" />
+              <span style="flex: 1;">${opt}</span>
             </label>
           `).join('')}
         </div>
@@ -335,6 +345,8 @@ const app = {
         const answerIndex = parseInt(selected.value);
         answers.push({ questionId: q.id, selected: answerIndex, correct: q.correct });
         if (answerIndex === q.correct) correctCount++;
+      } else {
+        answers.push({ questionId: q.id, selected: -1, correct: q.correct });
       }
     });
 
@@ -343,26 +355,29 @@ const app = {
 
     const resultDiv = document.getElementById('examResult');
     resultDiv.innerHTML = `
-      <div style="padding: 16px; background: ${passed ? '#ecfccb' : '#fecaca'}; border-radius: 10px;">
-        <h3 style="margin: 0 0 8px 0;">
-          ${passed ? '✓ PASSED' : '✗ FAILED'}
+      <div style="padding: 20px; background: ${passed ? 'linear-gradient(135deg, #ecfccb, #c6f6d5)' : 'linear-gradient(135deg, #fecaca, #fed7d7)'}; border-radius: 10px; margin-bottom: 20px;">
+        <h3 style="margin: 0 0 12px 0; font-size: 1.3rem; color: ${passed ? '#166534' : '#991b1b'};">
+          ${passed ? '✅ PASSED!' : '❌ NOT PASSED'}
         </h3>
-        <p style="margin: 0 0 12px 0; font-size: 1.2rem;">
+        <p style="margin: 0 0 12px 0; font-size: 1.2rem; color: ${passed ? '#15803d' : '#b91c1c'};">
           Score: <strong>${correctCount}/${exam.questions.length} (${Math.round(percentage)}%)</strong>
         </p>
-        <p style="margin: 0; color: #555;">Passing Score: ${exam.passingScore}%</p>
+        <p style="margin: 0; color: #666;">Passing Score Required: ${exam.passingScore}%</p>
       </div>
-      <div style="margin-top: 16px; border-top: 1px solid #e2e8f0; padding-top: 16px;">
-        <h3>Review</h3>
+      <div style="margin-top: 20px; border-top: 2px solid #e2e8f0; padding-top: 20px;">
+        <h3 style="margin: 20px 0 16px 0;">📋 Detailed Review</h3>
         ${answers.map(ans => {
           const q = exam.questions.find(x => x.id === ans.questionId);
           const isCorrect = ans.selected === ans.correct;
+          const notAnswered = ans.selected === -1;
           return `
-            <div style="margin-bottom: 16px; padding: 12px; background: ${isCorrect ? '#f0fdf4' : '#fef2f2'}; border-radius: 8px; border-left: 4px solid ${isCorrect ? '#22c55e' : '#ef4444'};">
-              <strong>${q.question}</strong>
-              <p style="margin: 8px 0 4px 0;">Your answer: <span style="color: ${isCorrect ? '#16a34a' : '#dc2626'};">${q.options[ans.selected]}</span></p>
-              <p style="margin: 4px 0 8px 0; color: #666;">Correct answer: <strong>${q.options[ans.correct]}</strong></p>
-              <p style="margin: 0; font-size: 0.9rem; color: #666;"><em>${q.explanation}</em></p>
+            <div style="margin-bottom: 20px; padding: 16px; background: ${isCorrect ? '#f0fdf4' : notAnswered ? '#fef3c7' : '#fef2f2'}; border-left: 4px solid ${isCorrect ? '#22c55e' : notAnswered ? '#eab308' : '#ef4444'}; border-radius: 8px;">
+              <strong style="color: #1a202c; display: block; margin-bottom: 8px;">Q: ${q.question}</strong>
+              <p style="margin: 8px 0; color: ${isCorrect ? '#16a34a' : notAnswered ? '#92400e' : '#dc2626'}; font-weight: 500;">
+                Your answer: <span>${notAnswered ? '(Not answered)' : q.options[ans.selected]}</span>
+              </p>
+              <p style="margin: 8px 0; color: #15803d; font-weight: 500;">✓ Correct: ${q.options[ans.correct]}</p>
+              <p style="margin: 12px 0 0 0; color: #666; font-size: 0.95rem; font-style: italic;">💡 ${q.explanation}</p>
             </div>
           `;
         }).join('')}
